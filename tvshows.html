@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TV Shows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+		<ul>
+			{{ BEGIN_BLOCK_TVSHOW }}
+			<li>
+				<a href="{{ TVSHOW.LINK }}">{{ TVSHOW.TITLE }}</a>
+				{{ TVSHOW.RATING }}
+				{{ TVSHOW.CERTIFICATION }}
+				{{ TVSHOW.FIRST_AIRED }}
+				{{ TVSHOW.STUDIO }}
+				{{ TVSHOW.PLOT }}
+				{{ TVSHOW.TAGS }}
+				{{ TVSHOW.GENRES }}
+				<img src="{{ IMAGE.POSTER[200, 400] }}" />
+				<img src="{{ IMAGE.FANART[200, 400] }}" />
+				<img src="{{ IMAGE.BANNER[200, 400] }}" />
+				<img src="{{ IMAGE.LOGO[200, 400] }}" />
+				<img src="{{ IMAGE.CLEARART[200, 400] }}" />
+				<img src="{{ IMAGE.CHARACTERART[200, 200] }}" />
+			</li>
+			{{ END_BLOCK_TVSHOW }}
+		</ul>
+  </body>
+</html>

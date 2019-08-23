@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Episode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+	  {{ SHOW.TITLE }}
+	  {{ SHOW.LINK }}
+	  {{ EPISODE.LINK }}
+	  {{ EPISODE.TITLE }}
+	  {{ EPISODE.SEASON }}
+	  {{ EPISODE.EPISODE }}
+	  {{ EPISODE.RATING }}
+	  {{ EPISODE.CERTIFICATION }}
+	  {{ EPISODE.FIRST_AIRED }}
+	  {{ EPISODE.LAST_PLAYED }}
+	  {{ EPISODE.STUDIO }}
+	  {{ EPISODE.PLOT }}
+	  {{ EPISODE.WRITERS }}
+	  {{ EPISODE.DIRECTORS }}
+	  
+	  {{ BEGIN_BLOCK_WRITERS }}
+	      {{ GENRE.NAME }}
+      {{ END_BLOCK_GENRES }}
+
+	  {{ BEGIN_BLOCK_DIRECTORS }}
+	      {{ DIRECTOR.NAME }}
+	  {{ END_BLOCK_DIRECTORS }}
+	  
+      Video width: {{ FILEINFO.WIDTH }}<br />
+      Video height: {{ FILEINFO.HEIGHT }}<br />
+      Video aspect ratio: {{ FILEINFO.ASPECT }}<br />
+      Video codec: {{ FILEINFO.CODEC }}<br />
+      Video duration in seconds: {{ FILEINFO.DURATION }}<br />
+      Audio codec(s) (joined by |): {{ FILEINFO.AUDIO.CODEC }}<br />
+      Audio channels(s) (joined by |): {{ FILEINFO.AUDIO.CHANNELS }}<br />
+      Audio languages(s) (joined by |): {{ FILEINFO.AUDIO.LANGUAGE }}<br />
+      
+	  <img src="{{ IMAGE.THUMBNAIL[300,200] }}" />
+  </body>
+</html>

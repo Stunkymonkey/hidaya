@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+		<ul>
+			{{ BEGIN_BLOCK_MOVIE }}
+			<li>
+				<a href="{{ MOVIE.LINK }}">{{ MOVIE.TITLE }}</a>
+				{{ MOVIE.YEAR }}
+				{{ MOVIE.ORIGINAL_TITLE }}
+				{{ MOVIE.GENRES }}
+				{{ MOVIE.RATING }}
+				<img src="{{ IMAGE.POSTER[400,200] }}" />
+			</li>
+			{{ END_BLOCK_MOVIE }}
+		</ul>
+  </body>
+</html>

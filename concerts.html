@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Concerts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+		<ul>
+			{{ BEGIN_BLOCK_CONCERT }}
+			<li>
+				<a href="{{ CONCERT.LINK }}">{{ CONCERT.TITLE }}</a>
+				{{ CONCERT.ARTIST }}
+				{{ CONCERT.ALBUM }}
+				{{ CONCERT.TAGLINE }}
+				{{ CONCERT.RATING }}
+				{{ CONCERT.YEAR }}
+				{{ CONCERT.RUNTIME }}
+				{{ CONCERT.CERTIFICATION }}
+				{{ CONCERT.TRAILER }}
+				{{ CONCERT.PLAY_COUNT }}
+				{{ CONCERT.LAST_PLAYED }}
+				{{ CONCERT.PLOT }}
+				{{ CONCERT.TAGS }}
+				{{ CONCERT.GENRES }}
+				<img src="{{ CONCERT.POSTER[200, 400] }}" />
+				<img src="{{ CONCERT.FANART[200, 400] }}" />
+				<img src="{{ CONCERT.LOGO[200, 400] }}" />
+				<img src="{{ CONCERT.CLEARART[200, 400] }}" />
+				<img src="{{ CONCERT.DISC[200, 200] }}" />
+			</li>
+			{{ END_BLOCK_CONCERT }}
+		</ul>
+  </body>
+</html>

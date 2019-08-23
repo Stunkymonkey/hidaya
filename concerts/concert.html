@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Concert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+		Artist: {{ CONCERT.ARTIST }}<br />
+		Album: {{ CONCERT.ALBUM }}<br />
+		Tagline: {{ CONCERT.TAGLINE }}<br />
+		Rating: {{ CONCERT.RATING }}<br />
+		Year: {{ CONCERT.YEAR }}<br />
+		Runtime: {{ CONCERT.RUNTIME }}<br />
+		Certification: {{ CONCERT.CERTIFICATION }}<br />
+		Trailer: {{ CONCERT.TRAILER }}<br />
+		Play count: {{ CONCERT.PLAY_COUNT }}<br />
+		Last played: {{ CONCERT.LAST_PLAYED }}<br />
+		Plot: {{ CONCERT.PLOT }}<br />
+		Tags: {{ CONCERT.TAGS }}<br />
+		Genres: {{ CONCERT.GENRES }}<br />
+		
+		{{ BEGIN_BLOCK_TAGS }}
+			Tag: {{ TAG.NAME }}<br />
+		{{ END_BLOCK_TAGS }}
+
+		{{ BEGIN_BLOCK_GENRES }}
+			Genre: {{ GENRE.NAME }}<br />
+		{{ END_BLOCK_GENRES }}
+		
+        Video width: {{ FILEINFO.WIDTH }}<br />
+        Video height: {{ FILEINFO.HEIGHT }}<br />
+        Video aspect ratio: {{ FILEINFO.ASPECT }}<br />
+        Video codec: {{ FILEINFO.CODEC }}<br />
+        Video duration in seconds: {{ FILEINFO.DURATION }}<br />
+        Audio codec(s) (joined by |): {{ FILEINFO.AUDIO.CODEC }}<br />
+        Audio channels(s) (joined by |): {{ FILEINFO.AUDIO.CHANNELS }}<br />
+        Audio languages(s) (joined by |): {{ FILEINFO.AUDIO.LANGUAGE }}<br />
+        
+		<img src="{{ IMAGE.POSTER[200, 400] }}" />
+		<img src="{{ IMAGE.FANART[200, 400] }}" />
+		<img src="{{ IMAGE.LOGO[200, 400] }}" />
+		<img src="{{ IMAGE.CLEARART[200, 400] }}" />
+		<img src="{{ IMAGE.DISC[200, 200] }}" />
+  </body>
+</html>

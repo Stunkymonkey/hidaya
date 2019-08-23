@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TV Show</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+  </head>
+  <body>
+		<ul>
+			{{ BEGIN_BLOCK_TVSHOW }}
+			<li>
+				Title: {{ TVSHOW.TITLE }}<br />
+				Rating: {{ TVSHOW.RATING }}<br />
+				Certification: {{ TVSHOW.CERTIFICATION }}<br />
+				First aired: {{ TVSHOW.FIRST_AIRED }}<br />
+				Studio: {{ TVSHOW.STUDIO }}<br />
+				Plot: {{ TVSHOW.PLOT }}<br />
+				Tags: {{ TVSHOW.TAGS }}<br />
+				Genres: {{ TVSHOW.GENRES }}<br />
+
+				{{ BEGIN_BLOCK_TAGS }}
+					Tag: {{ TAG.NAME }}<br />
+				{{ END_BLOCK_TAGS }}
+
+				{{ BEGIN_BLOCK_GENRES }}
+					Genre: {{ GENRE.NAME }}<br />
+				{{ END_BLOCK_GENRES }}
+				
+				<img src="{{ IMAGE.POSTER[200, 400] }}" />
+				<img src="{{ IMAGE.FANART[200, 400] }}" />
+				<img src="{{ IMAGE.BANNER[200, 400] }}" />
+				<img src="{{ IMAGE.LOGO[200, 400] }}" />
+				<img src="{{ IMAGE.CLEARART[200, 400] }}" />
+				<img src="{{ IMAGE.CHARACTERART[200, 200] }}" />
+				
+				{{ BEGIN_BLOCK_SEASON }}
+					Season: {{ SEASON }}
+					<ul>
+					{{ BEGIN_BLOCK_EPISODE }}
+						<li>
+							<a href="{{ EPISODE.LINK }}">
+								S{{ EPISODE.SEASON }}E{{ EPISODE.EPISODE }} {{ EPISODE.TITLE }}
+							</a>
+						</li>
+					{{ END_BLOCK_EPISODE }}
+					</ul>
+				{{ END_BLOCK_SEASON }}
+				
+			</li>
+			{{ END_BLOCK_TVSHOW }}
+		</ul>
+  </body>
+</html>
