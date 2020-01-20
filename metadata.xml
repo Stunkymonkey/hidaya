@@ -2,13 +2,13 @@
 <metadata>
 	<name>Hidaya Theme</name>
 	<identifier>hidaya</identifier>
-	<description> beatufull theme.</description>
-	<description lang="de">Schönes Theme.</description>
+	<description>beautiful theme</description>
+	<description lang="de">Schönes Theme</description>
 	<author>Friedrich Weise, Felix Bühler</author>
 	<version>1.0</version>
 	<supports>
 		<section>movies</section>
 		<section>tvshows</section>
-			<!-- <section>concerts</section> -->
+		<!-- <section>concerts</section> -->
 	</supports>
 </metadata>
