@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Movies</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="MediaElch">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
+	<head>
+		<meta charset="utf-8" />
+		<title>Movies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="MediaElch">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
 		<ul class="flex-container">
 			{{ BEGIN_BLOCK_MOVIE }}
 			<li class="flex-item">
-				<a href="{{ MOVIE.LINK }}">{{ MOVIE.TITLE }}</a>
+				<a href="{{ MOVIE.LINK }}">
+				<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
+				{{ MOVIE.TITLE }}</a>
 				{{ MOVIE.YEAR }}
 				{{ MOVIE.GENRES }}
 				{{ MOVIE.RATING }}
-				<img src="{{ IMAGE.POSTER[200,400] }}" />
 			</li>
 			{{ END_BLOCK_MOVIE }}
 		</ul>
-  </body>
+	</body>
 </html>
