@@ -1,5 +1,38 @@
-.flex-container {
+body {
+	margin: 0;
 	padding: 0;
+
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+}
+
+.sidenav {
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+.sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	text-align: center;
+	color: #888;
+	display: block;
+}
+.sidenav a:hover {
+	color: #EEE;
+}
+
+.media-container {
+	padding: 0;
+	padding-left: 160px;
+	height: 100%;
 	margin: 0;
 	list-style: none;
 
@@ -10,14 +43,47 @@
 	background: black;
 }
 
-.flex-item {
+.media-item {
 	background: #242424;
-	padding: 5px;
 	width: 200px;
 	height: 400px;
-	margin: 10px;
+	overflow: hidden;
+	margin: 1em;
 	
 	color: white;
+
+	position: relative;
+
+	border-radius: 2px;
+}
+.media-item a {
+	color: inherit;
+	text-decoration: none;
+}
+.media-item a:hover {
+	text-decoration: underline;
+}
+.text-container {
+	padding: 0.75em;
+	max-height: calc(100px - 1.5em);
+}
+.media-item .title {
+	margin: 0 0 0.5em 0;
+	font-size: 1.2rem;
+}
+.media-item .year, .media-item .genre {
 	font-weight: bold;
-	text-align: center;
+	font-size: 0.9rem;
+	color: #DEDEDE;
+}
+.media-item .rating {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-weight: bold;
+	color: #DEDEDE;
+
+    background: #111B;
+    padding:10px;
+    border-radius: 25%;
 }

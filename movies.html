@@ -8,17 +8,33 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<ul class="flex-container">
+		<div class="sidenav">
+			<a href="movies.html">
+				Movies
+			</a>
+			<a href="tvshows.html">
+				TV-Shows
+			</a>
+<!-- 			<a href="concerts.html">
+				Concerts
+			</a> -->
+		</div>
+		<ul class="media-container">
 			{{ BEGIN_BLOCK_MOVIE }}
-			<li class="flex-item">
+			<li class="media-item">
 				<a href="{{ MOVIE.LINK }}">
-				<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
-				{{ MOVIE.TITLE }}</a>
-				{{ MOVIE.YEAR }}
-				{{ MOVIE.GENRES }}
-				{{ MOVIE.RATING }}
+					<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
+				</a>
+				<div class="text-container">
+					<h2 class="title">
+						<a href="{{ MOVIE.LINK }}">{{ MOVIE.TITLE }}</a>
+					</h2>
+					<span class="year">{{ MOVIE.YEAR }}</span> – <span class="genre">{{ MOVIE.GENRES }}</span>
+					<span class="rating">{{ MOVIE.RATING }}</span>
+				</div>
 			</li>
 			{{ END_BLOCK_MOVIE }}
 		</ul>
 	</body>
 </html>
+
