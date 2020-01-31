@@ -29,10 +29,13 @@ body {
 	color: #EEE;
 }
 
-.media-container {
-	padding: 0;
+.main {
 	padding-left: 160px;
 	height: 100%;
+}
+
+.media-container {
+	padding: 0;
 	margin: 0;
 	list-style: none;
 
@@ -83,7 +86,7 @@ body {
 	font-weight: bold;
 	color: #DEDEDE;
 
-    background: #111B;
-    padding:10px;
-    border-radius: 25%;
+	background: #111B;
+	padding:10px;
+	border-radius: 25%;
 }

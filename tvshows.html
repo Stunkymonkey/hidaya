@@ -19,21 +19,23 @@
 				Concerts
 			</a> -->
 		</div>
-		<ul class="media-container">
-			{{ BEGIN_BLOCK_TVSHOW }}
-			<li class="media-item">
-				<a href="{{ TVSHOW.LINK }}">
-					<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
-				</a>
-				<div class="text-container">
-					<h2 class="title">
-						<a href="{{ TVSHOW.LINK }}">{{ TVSHOW.TITLE }}</a>
-					</h2>
-					<span class="year">{{ TVSHOW.FIRST_AIRED }}</span> – <span class="genre">{{ TVSHOW.GENRES }}</span>
-					<span class="rating">{{ TVSHOW.RATING }}</span>
-				</div>
-			</li>
-			{{ END_BLOCK_TVSHOW }}
-		</ul>
-  </body>
+		<div class="main">
+			<ul class="media-container">
+				{{ BEGIN_BLOCK_TVSHOW }}
+				<li class="media-item">
+					<a href="{{ TVSHOW.LINK }}">
+						<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
+					</a>
+					<div class="text-container">
+						<h2 class="title">
+							<a href="{{ TVSHOW.LINK }}">{{ TVSHOW.TITLE }}</a>
+						</h2>
+						<span class="year">{{ TVSHOW.FIRST_AIRED }}</span> – <span class="genre">{{ TVSHOW.GENRES }}</span>
+						<span class="rating">{{ TVSHOW.RATING }}</span>
+					</div>
+				</li>
+				{{ END_BLOCK_TVSHOW }}
+			</ul>
+		</div>
+	</body>
 </html>
