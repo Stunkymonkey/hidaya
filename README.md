@@ -1,4 +1,4 @@
 # hidaya
 
-a export-theme for MediaElch
+An export-theme for MediaElch.
 
