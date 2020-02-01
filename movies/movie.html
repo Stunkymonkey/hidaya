@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Movies</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="MediaElch">
-  </head>
-  <body>
-		Title: {{ MOVIE.TITLE }}<br />
-		File-Location: {{ MOVIE.FILENAME }}<br \>
-		Year: {{ MOVIE.YEAR }}<br />
-		Original Title: {{ MOVIE.ORIGINAL_TITLE }}<br />
-		Set: {{ MOVIE.SET }}<br />
-		Genres: {{ MOVIE.GENRES }}<br />
-		Tags: {{ MOVIE.TAGS }}<br />
-		Plot: {{ MOVIE.PLOT }}<br />
-		Plot simple: {{ MOVIE.PLOT_SIMPLE }}<br />
-		Tagline: {{ MOVIE.TAGLINE }}<br />
-		Writer: {{ MOVIE.WRITER }}<br />
-		Director: {{ MOVIE.DIRECTOR }}<br />
-		Trailer: {{ MOVIE.TRAILER }}<br />
-		Rating: {{ MOVIE.RATING }}<br />
-		Votes: {{ MOVIE.VOTES }}<br />
-		Runtime: {{ MOVIE.RUNTIME }}<br />
-		Playcount: {{ MOVIE.PLAY_COUNT }}<br />
-		Last played: {{ MOVIE.LAST_PLAYED }}<br />
-		Countries: {{ MOVIE.COUNTRIES }}<br />
+	<head>
+		<meta charset="utf-8" />
+		<title>Movies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="MediaElch">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script src="../js/trailer.js"></script>
+	</head>
+	<body>
+		<div class="sidenav">
+			<a href="../movies.html">
+				Movies
+			</a>
+			<a href="../tvshows.html">
+				TV-Shows
+			</a>
+<!-- 			<a href="concerts.html">
+				Concerts
+			</a> -->
+		</div>
+		<div class="main">
+			Title: {{ MOVIE.TITLE }}<br />
+			File-Location: {{ MOVIE.FILENAME }}<br \>
+			Year: {{ MOVIE.YEAR }}<br />
+			Original Title: {{ MOVIE.ORIGINAL_TITLE }}<br />
+			Set: {{ MOVIE.SET }}<br />
+			Genres: {{ MOVIE.GENRES }}<br />
+			Tags: {{ MOVIE.TAGS }}<br />
+			Plot: {{ MOVIE.PLOT }}<br />
+			Tagline: {{ MOVIE.TAGLINE }}<br />
+			Writer: {{ MOVIE.WRITER }}<br />
+			Director: {{ MOVIE.DIRECTOR }}<br />
+			<div class="trailer" id="{{ MOVIE.TRAILER }}" style="width:560px; height: 315px;">
+			</div>
+			<br />
+			Rating: {{ MOVIE.RATING }}<br />
+			Votes: {{ MOVIE.VOTES }}<br />
+			Runtime: {{ MOVIE.RUNTIME }}<br />
+			Playcount: {{ MOVIE.PLAY_COUNT }}<br />
+			Countries: {{ MOVIE.COUNTRIES }}<br />
 
-		{{ BEGIN_BLOCK_TAGS }}
-			Tag: {{ TAG.NAME }}<br />
-		{{ END_BLOCK_TAGS }}
+			{{ BEGIN_BLOCK_TAGS }}
+				Tag: {{ TAG.NAME }}<br />
+			{{ END_BLOCK_TAGS }}
 
-		{{ BEGIN_BLOCK_GENRES }}
-			Genre: {{ GENRE.NAME }}<br />
-		{{ END_BLOCK_GENRES }}
-		
-		{{ BEGIN_BLOCK_COUNTRIES }}
-			Country: {{ COUNTRY.NAME }}<br />
-		{{ END_BLOCK_COUNTRIES }}
+			{{ BEGIN_BLOCK_GENRES }}
+				Genre: {{ GENRE.NAME }}<br />
+			{{ END_BLOCK_GENRES }}
+			
+			{{ BEGIN_BLOCK_COUNTRIES }}
+				Country: {{ COUNTRY.NAME }}<br />
+			{{ END_BLOCK_COUNTRIES }}
 
-		{{ BEGIN_BLOCK_STUDIOS }}
-			Studio: {{ STUDIO.NAME }}<br />
-		{{ END_BLOCK_STUDIOS }}
+			{{ BEGIN_BLOCK_STUDIOS }}
+				Studio: {{ STUDIO.NAME }}<br />
+			{{ END_BLOCK_STUDIOS }}
 
-		{{ BEGIN_BLOCK_ACTORS }}
-			Actor: {{ ACTOR.NAME }}: {{ ACTOR.ROLE }}<br />
-		{{ END_BLOCK_ACTORS }}
+			{{ BEGIN_BLOCK_ACTORS }}
+				Actor: {{ ACTOR.NAME }}: {{ ACTOR.ROLE }}<br />
+			{{ END_BLOCK_ACTORS }}
 
-        Video width: {{ FILEINFO.WIDTH }}<br />
-        Video height: {{ FILEINFO.HEIGHT }}<br />
-        Video aspect ratio: {{ FILEINFO.ASPECT }}<br />
-        Video codec: {{ FILEINFO.CODEC }}<br />
-        Video duration in seconds: {{ FILEINFO.DURATION }}<br />
-        Audio codec(s) (joined by |): {{ FILEINFO.AUDIO.CODEC }}<br />
-        Audio channels(s) (joined by |): {{ FILEINFO.AUDIO.CHANNELS }}<br />
-        Audio languages(s) (joined by |): {{ FILEINFO.AUDIO.LANGUAGE }}<br />
+			Video width: {{ FILEINFO.WIDTH }}<br />
+			Video height: {{ FILEINFO.HEIGHT }}<br />
+			Video aspect ratio: {{ FILEINFO.ASPECT }}<br />
+			Video duration in seconds: {{ FILEINFO.DURATION }}<br />
+			Audio channels(s) (joined by |): {{ FILEINFO.AUDIO.CHANNELS }}<br />
+			Audio languages(s) (joined by |): {{ FILEINFO.AUDIO.LANGUAGE }}<br />
 
-		<img src="{{ IMAGE.POSTER[200,400] }}" />
-		<img src="{{ IMAGE.FANART[200,400] }}" />
-		<img src="{{ IMAGE.LOGO[200,400] }}" />
-		<img src="{{ IMAGE.CLEARART[200,400] }}" />
-		<img src="{{ IMAGE.DISC[200,200] }}" />
-  </body>
+			<img src="{{ IMAGE.POSTER[200,400] }}" />
+			<img src="{{ IMAGE.FANART[200,400] }}" />
+			<img src="{{ IMAGE.LOGO[200,400] }}" />
+			<img src="{{ IMAGE.CLEARART[200,400] }}" />
+			<img src="{{ IMAGE.DISC[200,200] }}" />
+		</div>
+	</body>
 </html>
