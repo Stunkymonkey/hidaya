@@ -21,15 +21,11 @@
 	  {{ EPISODE.PLOT }}
 	  {{ EPISODE.WRITERS }}
 	  {{ EPISODE.DIRECTORS }}
-	  
-	  {{ BEGIN_BLOCK_WRITERS }}
-	      {{ GENRE.NAME }}
-      {{ END_BLOCK_GENRES }}
 
 	  {{ BEGIN_BLOCK_DIRECTORS }}
 	      {{ DIRECTOR.NAME }}
 	  {{ END_BLOCK_DIRECTORS }}
-	  
+	  <br />
       Video width: {{ FILEINFO.WIDTH }}<br />
       Video height: {{ FILEINFO.HEIGHT }}<br />
       Video aspect ratio: {{ FILEINFO.ASPECT }}<br />
