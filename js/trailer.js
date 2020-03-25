@@ -7,14 +7,15 @@ function create_trailer_iframe() {
 		var img = document.createElement("img");
 		var youtube_id = youtube.id.replace("plugin://plugin.video.youtube/?action=play_video&videoid=", "");
 
+		// maybe use maxresdefault.jpg
 		img.setAttribute("src", "http://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
 		img.setAttribute("class", "thumb");
+		youtube.appendChild(img);
 
 		// have overlay play button
 		var circle = document.createElement("div");
-		circle.setAttribute("class","circle");
-
-		youtube.appendChild(img);
+		circle.setAttribute("id","play-trailer");
+		circle.innerHTML = "<h2>&#xf16a;</h2>";
 		youtube.appendChild(circle);
 
 		// if clicked the real video should play
