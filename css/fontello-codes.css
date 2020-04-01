@@ -2,7 +2,8 @@
 .icon-video:before { content: '\e800'; } /* '' */
 .icon-star:before { content: '\e801'; } /* '' */
 .icon-search:before { content: '\e802'; } /* '' */
+.icon-clock:before { content: '\e803'; } /* '' */
+.icon-play:before { content: '\e804'; } /* '' */
 .icon-mic:before { content: '\f130'; } /* '' */
-.icon-play-circled:before { content: '\f144'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */
 .icon-television:before { content: '\f26c'; } /* '' */
