@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>TV Show</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="MediaElch">
-  </head>
-  <body>
-		<ul>
-			{{ BEGIN_BLOCK_TVSHOW }}
-			<li>
-				Title: {{ TVSHOW.TITLE }}<br />
-				Rating: {{ TVSHOW.RATING }}<br />
-				Certification: {{ TVSHOW.CERTIFICATION }}<br />
-				First aired: {{ TVSHOW.FIRST_AIRED }}<br />
-				Studio: {{ TVSHOW.STUDIO }}<br />
-				Plot: {{ TVSHOW.PLOT }}<br />
-				Tags: {{ TVSHOW.TAGS }}<br />
-				Genres: {{ TVSHOW.GENRES }}<br />
+	<head>
+		<meta charset="utf-8" />
+		<title>Movies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="MediaElch">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="stylesheet" type="text/css" href="../css/tabs.css">
+		<script src="../js/check_title.js"></script>
+		<script src="../js/fill_empty.js"></script>
+		<script src="../js/duration.js"></script>
+		<script src="../js/play_button.js"></script>
+	</head>
+	<body onload="calc_duration(); check_original_title(); movie_available(); fill_empty_listings();">
+		<div class="sidenav">
+			<a href="../movies.html">
+				&#xe800;
+				<br>
+				Movies
+			</a>
+			<a href="../tvshows.html" class="active">
+				&#xf26c;
+				<br>
+				TV-Shows
+			</a>
+<!-- 			<a href="../concerts.html">
+				&#xf130;
+				<br>
+				Concerts
+			</a> -->
+		</div>
+		<div class="main">
+			<h2 class="title">
+				{{ TVSHOW.TITLE }}
+			</h2>
+			Rating: {{ TVSHOW.RATING }}<br />
+			Certification: {{ TVSHOW.CERTIFICATION }}<br />
+			First aired: {{ TVSHOW.FIRST_AIRED }}<br />
+			Studio: {{ TVSHOW.STUDIO }}<br />
+			Plot: {{ TVSHOW.PLOT }}<br />
 
-				{{ BEGIN_BLOCK_TAGS }}
-					Tag: {{ TAG.NAME }}<br />
-				{{ END_BLOCK_TAGS }}
-
-				{{ BEGIN_BLOCK_GENRES }}
-					Genre: {{ GENRE.NAME }}<br />
-				{{ END_BLOCK_GENRES }}
-				
-				<img src="{{ IMAGE.POSTER[200, 400] }}" />
-				<img src="{{ IMAGE.FANART[200, 400] }}" />
-				<img src="{{ IMAGE.BANNER[200, 400] }}" />
-				<img src="{{ IMAGE.LOGO[200, 400] }}" />
-				<img src="{{ IMAGE.CLEARART[200, 400] }}" />
-				<img src="{{ IMAGE.CHARACTERART[200, 200] }}" />
-				
-				{{ BEGIN_BLOCK_SEASON }}
-					Season: {{ SEASON }}
+			{{ BEGIN_BLOCK_GENRES }}
+				Genre: {{ GENRE.NAME }}<br />
+			{{ END_BLOCK_GENRES }}
+			
+			<img src="{{ IMAGE.POSTER[200,300] }}" />
+			<img src="{{ IMAGE.LOGO[400,200] }}"/>
+			
+			<!-- tabs -->
+			<div class="tabs">
+			{{ BEGIN_BLOCK_SEASON }}
+				<input type="radio" name="tabs" id="{{ SEASON }}" checked="checked">
+				<label for="{{ SEASON }}">Season {{ SEASON }}</label>
+				<div class="tab">
 					<ul>
 					{{ BEGIN_BLOCK_EPISODE }}
 						<li>
 							<a href="{{ EPISODE.LINK }}">
 								S{{ EPISODE.SEASON }}E{{ EPISODE.EPISODE }} {{ EPISODE.TITLE }}
 							</a>
+							<br>
+							{{ EPISODE.RATING }}
+							{{ EPISODE.PLOT }}
+							<img src="{{ IMAGE.THUMBNAIL[300,200] }}" />
 						</li>
 					{{ END_BLOCK_EPISODE }}
 					</ul>
-				{{ END_BLOCK_SEASON }}
-				
-			</li>
-			{{ END_BLOCK_TVSHOW }}
-		</ul>
+				</div>
+			{{ END_BLOCK_SEASON }}
+			</div>
+		</div>
   </body>
 </html>
