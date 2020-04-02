@@ -10,12 +10,14 @@
 	</head>
 	<body>
 		<div class="sidenav">
+			<span>&#xe802;</span>
+			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
 			<a href="movies.html">
 				&#xe800;
 				<br>
 				Movies
 			</a>
-			<a href="tvshows.html">
+			<a href="tvshows.html" class="active">
 				&#xf26c;
 				<br>
 				TV-Shows
@@ -25,25 +27,37 @@
 				<br>
 				Concerts
 			</a> -->
-			<span>&#xe802;</span>
-			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
 		</div>
 		<div class="main">
 			<ul class="media-container">
-				{{ BEGIN_BLOCK_TVSHOW }}
+			{{ BEGIN_BLOCK_TVSHOW }}
 				<li class="media-item">
 					<a href="{{ TVSHOW.LINK }}">
 						<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
+						<div class="info">
+							<h2 class="title">{{ TVSHOW.TITLE }}</h2>
+							<span class="year">({{ TVSHOW.FIRST_AIRED }})</span>
+						</div>
+						<div class="media-overlay">
+							<span class="rating">
+								&#xe801;
+								<br>
+								{{ TVSHOW.RATING }}/10
+							</span>
+							<span class="genre">
+							{{ BEGIN_BLOCK_GENRES }}
+								{{ GENRE.NAME }}
+								<br>
+							{{ END_BLOCK_GENRES }}
+							</span>
+						</div>
+						<div class="search_attributes">
+							{{ TVSHOW.STUDIO }}
+							{{ TVSHOW.TAGS }}
+						</div>
 					</a>
-					<div class="text-container">
-						<h2 class="title">
-							<a href="{{ TVSHOW.LINK }}">{{ TVSHOW.TITLE }}</a>
-						</h2>
-						<span class="year">{{ TVSHOW.FIRST_AIRED }}</span> – <span class="genre">{{ TVSHOW.GENRES }}</span>
-						<span class="rating">{{ TVSHOW.RATING }}</span>
-					</div>
 				</li>
-				{{ END_BLOCK_TVSHOW }}
+			{{ END_BLOCK_TVSHOW }}
 			</ul>
 		</div>
 	</body>
