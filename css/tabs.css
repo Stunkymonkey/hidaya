@@ -1,29 +1,36 @@
 .tabs {
 	display: flex;
-	flex-wrap: wrap; // make sure it wraps
+	flex-wrap: wrap;
+	width: 85%;
+	margin: auto;
+	margin-top: 3%;
 }
 .tabs label {
-	order: 1; // Put the labels first
+	order: 1;
 	display: block;
 	padding: 1rem 2rem;
-	margin-right: 0.2rem;
+	margin: auto;
 	cursor: pointer;
 	font-weight: bold;
+	font-size: 1.2rem;
 	transition: background ease 0.2s;
 }
 .tabs .tab {
-	order: 99; // Put the tabs last
-	flex-grow: 1;
-	width: 100%;
+	order: 99;
+	height: 600px;
 	display: none;
-	padding: 1rem;
 	background: #222;
+	overflow-y: auto;
+	width: 100%;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
 }
+
 .tabs input[type="radio"] {
 	display: none;
 }
 .tabs input[type="radio"]:checked + label {
-	background: #222;
+	text-decoration: underline #EEE;
 }
 .tabs input[type="radio"]:checked + label + .tab {
 	display: block;
