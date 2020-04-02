@@ -5,10 +5,35 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "fontello";
 	font-size: 16px;
 
-	background: black;
+	background: #111;
+	background-repeat: no-repeat;
 }
 img {
 	max-width: 100%;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	outline: 0;
+}
+h3 {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+input[type=text] {
+	width: 90%;
+	box-sizing: border-box;
+	border: 2px solid #888;
+	border-radius: 4px;
+	background-color : #111;
+	color: #EEE;
+	font-size: 1em;
+	padding: 5px;
+	text-align: center;
+}
+input[type=text]:hover {
+	border: 2px solid #DDD;
 }
 
 @font-face {
@@ -22,24 +47,34 @@ img {
 	font-style: normal;
 }
 
+.active {
+	color: #EEE;
+}
 .sidenav {
 	height: 100%;
 	width: 160px;
 	position: fixed;
-	z-index: 1;
+	z-index: 999;
 	top: 0;
 	left: 0;
-	background-color: #111;
 	overflow-x: hidden;
 	padding-top: 20px;
+	color: #888;
+	text-align: center;
+	overflow: hidden;
 }
 .sidenav a {
-	padding: 6px 8px 6px 16px;
-	text-decoration: none;
-	font-size: 25px;
-	text-align: center;
-	color: #888;
+	padding: 8px;
+	font-size: 1.5rem;
 	display: block;
+	margin-top: 2em;
+}
+.sidenav span {
+	padding: 8px;
+	font-size: 1.5rem;
+	text-align: center;
+	display: block;
+	margin-top: 2em;
 }
 .sidenav a:hover {
 	color: #EEE;
@@ -47,62 +82,165 @@ img {
 
 .main {
 	padding-left: 160px;
-	height: 100%;
+	color: #DEDEDE;
 }
 
 .media-container {
 	padding: 0;
-	margin: 0;
+	margin: 10px 0;
 	list-style: none;
-
 	display: flex;
 	flex-wrap: wrap;
-
-	justify-content: space-around;
-	background: black;
+	justify-content: center;
 }
 
 .media-item {
 	background: #242424;
 	width: 200px;
-	height: 400px;
+	height: 370px;
 	overflow: hidden;
-	margin: 1em;
-	
+	margin: 1.5em 1em;
 	color: white;
-
 	position: relative;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
+	transition: .3s ease;
+}
+.media-item:hover .media-overlay{
+	opacity: 0.8;
+	transition: .3s ease;
+}
+.media-item img {
+	width: 200px;
+	height: 300px;
+}
 
-	border-radius: 2px;
-}
-.media-item a {
-	color: inherit;
-	text-decoration: none;
-}
-.media-item a:hover {
-	text-decoration: underline;
-}
-.text-container {
+.info {
 	padding: 0.75em;
-	max-height: calc(100px - 1.5em);
 }
 .media-item .title {
-	margin: 0 0 0.5em 0;
-	font-size: 1.2rem;
+	margin: 0 0 0.2em 0;
+	font-size: 1em;
+	overflow: hidden;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
 }
-.media-item .year, .media-item .genre {
-	font-weight: bold;
+.media-item .year {
 	font-size: 0.9rem;
-	color: #DEDEDE;
+	color: #888;
+}
+
+.media-overlay {
+	transition: .3s ease;
+	opacity: 0;
+	background-color: #111;
+	color: #fff;
+	font-weight: bold;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 300px;
+	width: 100%;
+	text-align: center;
 }
 .media-item .rating {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	font-weight: bold;
-	color: #DEDEDE;
+	display: block;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	padding: 1.5em;
+	margin-bottom: 1em; 
+}
+.media-item .genre {
+	display: block;
+	line-height: 1.6;
+}
+.media-item .search_attributes {
+	display: none;
+}
 
-	background: #111B;
-	padding:10px;
-	border-radius: 25%;
+.plot {
+	padding: 2em;
+}
+
+#play-movie a {
+	color: #999;
+	text-decoration: none;
+}
+#play-movie a:hover {
+	color: #fff;
+}
+
+.trailer {
+	position: relative;
+}
+.thumb {
+	display: block;
+	max-height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+iframe {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0;
+	height: 600px;
+	width: 100%;
+}
+#play-trailer {
+	position: absolute;
+	color: red;
+	font-size: 3em;
+	user-select: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.tab .poster {
+	float: left;
+	padding-right: 2em;
+}
+.tab .poster img {
+	width: 400px;
+	height: 600px;
+	float: inherit;
+}
+.tab .year {
+	color: #888;
+	font-size: 2rem;
+}
+.tab .bubbles {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1em 0;
+	justify-content: space-evenly;
+}
+.tab .bubble {
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+	background-color: black;
+}
+.tab .listings {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1em;
+	justify-content: space-between;
+	flex-direction: row;
+}
+.tab .listing {
+	flex: 1;
+	min-width: 300px;
+	max-width: 300px;
+	margin: 1em;
+	padding: 0.5em 1em;
+}
+.tab .section {
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+}
+
+.tab .title {
+	margin: 0;
+	text-align: center;
 }
