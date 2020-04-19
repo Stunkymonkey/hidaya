@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Concerts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="MediaElch">
-  </head>
-  <body>
-		<ul>
+	<head>
+		<meta charset="utf-8" />
+		<title>Concerts</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="MediaElch">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="js/filter.js"></script>
+	</head>
+	<body>
+		<div class="sidenav">
+			<span>&#xe802;</span>
+			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
+			<a href="movies.html">
+				&#xe800;
+				<br>
+				Movies
+			</a>
+			<a href="tvshows.html">
+				&#xf26c;
+				<br>
+				TV-Shows
+			</a>
+			<a href="concerts.html" class="active">
+				&#xf130;
+				<br>
+				Concerts
+			</a>
+		</div>
+		<div class="main">
+			<ul class="media-container">
 			{{ BEGIN_BLOCK_CONCERT }}
-			<li>
-				<a href="{{ CONCERT.LINK }}">{{ CONCERT.TITLE }}</a>
-				{{ CONCERT.ARTIST }}
-				{{ CONCERT.ALBUM }}
-				{{ CONCERT.TAGLINE }}
-				{{ CONCERT.RATING }}
-				{{ CONCERT.YEAR }}
-				{{ CONCERT.RUNTIME }}
-				{{ CONCERT.CERTIFICATION }}
-				{{ CONCERT.TRAILER }}
-				{{ CONCERT.PLAY_COUNT }}
-				{{ CONCERT.LAST_PLAYED }}
-				{{ CONCERT.PLOT }}
-				{{ CONCERT.TAGS }}
-				{{ CONCERT.GENRES }}
-				<img src="{{ CONCERT.POSTER[200, 400] }}" />
-				<img src="{{ CONCERT.FANART[200, 400] }}" />
-				<img src="{{ CONCERT.LOGO[200, 400] }}" />
-				<img src="{{ CONCERT.CLEARART[200, 400] }}" />
-				<img src="{{ CONCERT.DISC[200, 200] }}" />
-			</li>
+				<li class="media-item">
+					<a href="{{ CONCERT.LINK }}">
+						<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
+						<div class="info">
+							<h2 class="title">{{ CONCERT.TITLE }}</h2>
+							<span class="year">({{ CONCERT.YEAR }})</span>
+						</div>
+						<div class="media-overlay">
+							<span class="rating">
+								&#xe801;
+								<br>
+								{{ CONCERT.RATING }}/10
+							</span>
+							<span class="genre">
+							{{ BEGIN_BLOCK_GENRES }}
+								{{ GENRE.NAME }}
+								<br>
+							{{ END_BLOCK_GENRES }}
+							</span>
+						</div>
+						<div class="search_attributes">
+							{{ CONCERT.STUDIOS }}
+							{{ CONCERT.TAGS }}
+							{{ CONCERT.ARTIST }}
+							{{ CONCERT.ALBUM }}
+							{{ CONCERT.PLOT }}
+							{{ CONCERT.CERTIFICATION }}
+							{{ CONCERT.TAGLINE }}
+						</div>
+					</a>
+				</li>
 			{{ END_BLOCK_CONCERT }}
-		</ul>
-  </body>
+			</ul>
+		</div>
+	</body>
 </html>

@@ -6,7 +6,6 @@ body {
 	font-size: 16px;
 
 	background: #111;
-	background-repeat: no-repeat;
 }
 img {
 	max-width: 100%;
@@ -54,10 +53,8 @@ input[type=text]:hover {
 	height: 100%;
 	width: 160px;
 	position: fixed;
-	z-index: 999;
 	top: 0;
 	left: 0;
-	overflow-x: hidden;
 	padding-top: 20px;
 	color: #888;
 	text-align: center;

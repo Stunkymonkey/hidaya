@@ -9,6 +9,6 @@
 	<supports>
 		<section>movies</section>
 		<section>tvshows</section>
-		<!-- <section>concerts</section> -->
+		<section>concerts</section>
 	</supports>
 </metadata>
