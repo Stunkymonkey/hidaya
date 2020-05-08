@@ -14,23 +14,24 @@
 	</head>
 	<body onload="calc_duration(); check_original_title(); movie_available(); fill_empty_listings();">
 		<div class="sidenav">
-			<span style="visibility: hidden;">&#xe802;</span>
-			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search" style="visibility: hidden;">
-			<a href="../movies.html">
-				&#xe800;
-				<br>
-				Movies
-			</a>
-			<a href="../tvshows.html" class="active">
-				&#xf26c;
-				<br>
-				TV-Shows
-			</a>
-			<a href="../concerts.html">
-				&#xf130;
-				<br>
-				Concerts
-			</a>
+			<div class="navigationArea">
+				<a href="../movies.html" class="sideBarItem">
+					<span>&#xe800;</span>
+					<span>Movies</span>
+				</a>
+				<a href="../tvshows.html" class="sideBarItem active">
+					<span>&#xf26c;</span>
+					<span>TV-Shows</span>
+				</a>
+				<a href="../concerts.html" class="sideBarItem">
+					<span>&#xf130;</span>
+					<span>Concerts</span>
+				</a>
+			</div>
+			<div class="searchArea" style="visibility: hidden;">
+				<span>&#xe802;</span>
+				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
+			</div>
 		</div>
 		<div class="main">
 			<h2 class="title">
@@ -46,7 +47,7 @@
 				Genre: {{ GENRE.NAME }}<br />
 			{{ END_BLOCK_GENRES }}
 			
-			<img src="{{ IMAGE.POSTER[200,300] }}" />
+			<img src="{{ IMAGE.POSTER[400,600] }}" />
 			<img src="{{ IMAGE.LOGO[400,200] }}"/>
 			
 			<!-- tabs -->
