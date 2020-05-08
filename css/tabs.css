@@ -2,8 +2,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	width: 85%;
-	margin: auto;
-	margin-top: 3%;
+	margin: 0 auto;
+	align-content: center;
 }
 .tabs label {
 	order: 1;
@@ -23,14 +23,22 @@
 	overflow-y: auto;
 	width: 100%;
 	border-radius: 4px;
-	box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
+	border: 2px solid #C8C8C8;
 }
 
 .tabs input[type="radio"] {
 	display: none;
 }
 .tabs input[type="radio"]:checked + label {
-	text-decoration: underline #EEE;
+	color: #262626;
+	background-color: #C8C8C8;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.tabs input[type="radio"]:hover + label {
+	background-color: #5B5B5B;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
 }
 .tabs input[type="radio"]:checked + label + .tab {
 	display: block;
@@ -46,4 +54,15 @@
 		margin-right: 0;
 		margin-top: 0.2rem;
 	}
+}
+
+.tabs input[type="radio"]:checked + label + .tabOverview {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.overviewContent {
+	flex-grow: 2;
+	padding: 2em;
+	max-height: 600px;
+	box-sizing: border-box;
 }
