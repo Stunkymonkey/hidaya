@@ -10,23 +10,24 @@
 	</head>
 	<body>
 		<div class="sidenav">
-			<span>&#xe802;</span>
-			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			<a href="movies.html">
-				&#xe800;
-				<br>
-				Movies
-			</a>
-			<a href="tvshows.html">
-				&#xf26c;
-				<br>
-				TV-Shows
-			</a>
-			<a href="concerts.html" class="active">
-				&#xf130;
-				<br>
-				Concerts
-			</a>
+			<div class="navigationArea">
+				<a href="movies.html" class="sideBarItem">
+					<span>&#xe800;</span>
+					<span>Movies</span>
+				</a>
+				<a href="tvshows.html" class="sideBarItem">
+					<span>&#xf26c;</span>
+					<span>TV-Shows</span>
+				</a>
+				<a href="concerts.html" class="sideBarItem active">
+					<span>&#xf130;</span>
+					<span>Concerts</span>
+				</a>
+			</div>
+			<div class="searchArea">
+				<span>&#xe802;</span>
+				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
+			</div>
 		</div>
 		<div class="main">
 			<ul class="media-container">
