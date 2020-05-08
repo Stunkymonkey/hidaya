@@ -13,55 +13,56 @@
 		<script src="../js/duration.js"></script>
 		<script src="../js/play_button.js"></script>
 	</head>
-	<body onload="calc_duration(); check_original_title(); movie_available(); create_trailer_iframe(); fill_empty_listings();">
+	<body onload="calc_duration(); check_original_title(); media_available(); create_trailer_iframe(); fill_empty_listings();">
 		<div class="sidenav">
-			<span style="visibility: hidden;">&#xe802;</span>
-			<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search" style="visibility: hidden;">
-			<a href="../movies.html" class="active">
-				&#xe800;
-				<br>
-				Movies
-			</a>
-			<a href="../tvshows.html">
-				&#xf26c;
-				<br>
-				TV-Shows
-			</a>
-			<a href="../concerts.html">
-				&#xf130;
-				<br>
-				Concerts
-			</a>
+			<div class="navigationArea">
+				<a href="../movies.html" class="sideBarItem active">
+					<span>&#xe800;</span>
+					<span>Movies</span>
+				</a>
+				<a href="../tvshows.html" class="sideBarItem">
+					<span>&#xf26c;</span>
+					<span>TV-Shows</span>
+				</a>
+				<a href="../concerts.html" class="sideBarItem">
+					<span>&#xf130;</span>
+					<span>Concerts</span>
+				</a>
+			</div>
+			<div class="searchArea" style="visibility: hidden;">
+				<span>&#xe802;</span>
+				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
+			</div>
 		</div>
-		<div class="main">
+		<div class="main main-tab">
 			<!-- tabs -->
 			<div class="tabs">
 				<input type="radio" name="tabs" id="overview" checked="checked">
 				<label for="overview">Overview</label>
-				<div class="tab">
+				<div class="tab tabOverview">
 					<div class="poster">
 						<img src="{{ IMAGE.POSTER[400,600] }}"/>
 					</div>
-					<!-- <h2 class="title">
-						<img src="{{ IMAGE.LOGO[800,310] }}" alt="{{ MOVIE.TITLE }}" align="middle"/>
-					</h2> -->
-					<h1 class="title">
-						<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ MOVIE.TITLE }}" align="middle"/>
-					</h1>
-					<span class="year">({{ MOVIE.YEAR }})</span>
-					<br>
-					<span class="original-title">Original Title: {{ MOVIE.ORIGINAL_TITLE }}</span>
-					<br>
-					<div class="plot">{{ MOVIE.PLOT }}</div>
-					<div class="bubbles">
-						<div class="bubble" id="rating">
-							&#xe801; {{ MOVIE.RATING }} / 10
-						</div>
-						<div class="bubble" id="duration">
-							{{ FILEINFO.DURATION }}
-						</div>
-						<div class="bubble" id="play-media">
+					<div class="overviewContent">
+						<h1 class="title">
+							<!-- max:[800,310] -->
+							<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ MOVIE.TITLE }}" align="middle"/>
+						</h1>
+						<span class="year">{{ MOVIE.YEAR }}</span>
+						<br>
+						<span class="original-title">Original Title: {{ MOVIE.ORIGINAL_TITLE }}</span>
+						<br>
+						<div class="plot">{{ MOVIE.PLOT }}</div>
+						<div class="bubbles">
+							<div class="bubble" id="rating">
+								&#xe801; {{ MOVIE.RATING }} / 10
+							</div>
+							<div class="bubble" id="duration">
+								{{ FILEINFO.DURATION }}
+							</div>
+							<div class="bubble" id="play-media">
 								<a href="file://{{ MOVIE.FILENAME }}">&#xe804; Play</a>
+							</div>
 						</div>
 					</div>
 				</div>
