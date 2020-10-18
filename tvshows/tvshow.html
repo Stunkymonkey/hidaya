@@ -12,7 +12,7 @@
 		<script src="../js/duration.js"></script>
 		<script src="../js/play_button.js"></script>
 	</head>
-	<body onload="calc_duration(); check_original_title(); movie_available(); fill_empty_listings();">
+	<body onload="calc_duration(); check_original_title(); media_available(); fill_empty_listings();">
 		<div class="sidenav">
 			<div class="navigationArea">
 				<a href="../movies.html" class="sideBarItem">
@@ -33,44 +33,63 @@
 				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
 			</div>
 		</div>
-		<div class="main">
-			<h2 class="title">
-				{{ TVSHOW.TITLE }}
-			</h2>
-			Rating: {{ TVSHOW.RATING }}<br />
-			Certification: {{ TVSHOW.CERTIFICATION }}<br />
-			First aired: {{ TVSHOW.FIRST_AIRED }}<br />
-			Studio: {{ TVSHOW.STUDIO }}<br />
-			Plot: {{ TVSHOW.PLOT }}<br />
-
-			{{ BEGIN_BLOCK_GENRES }}
-				Genre: {{ GENRE.NAME }}<br />
-			{{ END_BLOCK_GENRES }}
-			
-			<img src="{{ IMAGE.POSTER[400,600] }}" />
-			<img src="{{ IMAGE.LOGO[400,200] }}"/>
-			
-			<!-- tabs -->
+		<div class="main main-tab">
 			<div class="tabs">
-			{{ BEGIN_BLOCK_SEASON }}
-				<input type="radio" name="tabs" id="{{ SEASON }}" checked="checked">
-				<label for="{{ SEASON }}">Season {{ SEASON }}</label>
-				<div class="tab">
-					<ul>
-					{{ BEGIN_BLOCK_EPISODE }}
-						<li>
-							<a href="{{ EPISODE.LINK }}">
-								S{{ EPISODE.SEASON }}E{{ EPISODE.EPISODE }} {{ EPISODE.TITLE }}
-							</a>
-							<br>
-							{{ EPISODE.RATING }}
-							{{ EPISODE.PLOT }}
-							<img src="{{ IMAGE.THUMBNAIL[300,200] }}" />
-						</li>
-					{{ END_BLOCK_EPISODE }}
-					</ul>
+				<input type="radio" name="tabs" id="overview" checked="checked">
+				<label for="overview">Overview</label>
+				<div class="tab tabOverview">
+					<div class="poster">
+						<img src="{{ IMAGE.POSTER[400,600] }}"/>
+					</div>
+					<div class="overviewContent">
+						<h1 class="title">
+							<!-- max:[800,310] -->
+							<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ TVSHOW.TITLE }}" align="middle"/>
+						</h1>
+						Genre: {{ TVSHOW.GENRES }}
+						<div class="plot">{{ TVSHOW.PLOT }}</div>
+						<div class="bubbles">
+							<div class="bubble" id="rating">
+								&#xe801; {{ TVSHOW.RATING }} / 10
+							</div>
+						</div>
+					</div>
 				</div>
-			{{ END_BLOCK_SEASON }}
+
+				<input type="radio" name="tabs" id="episodes">
+				<label for="episodes">Episodes</label>
+				<div class="tab">
+					{{ BEGIN_BLOCK_SEASON }}
+						<h2 class="episodeHeading">Season {{ SEASON }}</h2>
+						<ul class="episodeList">
+							{{ BEGIN_BLOCK_EPISODE }}
+								<li>
+									<a href="file://{{ EPISODE.FILENAME }}" class="episodeTitle play-media">
+										<span class="episodeNumber">{{ EPISODE.EPISODE }}</span>
+										<span class="episodePlayButton">&#xe804;</span>
+										 {{ EPISODE.TITLE }}
+									</a>
+									<span class="episodeRating">&#xe801; {{ EPISODE.RATING }}</span>
+									<span class="episodeDuration jsCalcDuration">{{ FILEINFO.DURATION }}</span>
+								</li>
+							{{ END_BLOCK_EPISODE }}
+						</ul>
+					{{ END_BLOCK_SEASON }}
+				</div>
+
+
+				<input type="radio" name="tabs" id="actors">
+				<label for="actors">Actors</label>
+				<div class="tab">
+					<div class="listings">
+					{{ BEGIN_BLOCK_ACTORS }}
+						<div class="listing">
+							&bull; {{ ACTOR.NAME }} as: {{ ACTOR.ROLE }}
+						</div>
+					{{ END_BLOCK_ACTORS }}
+					</div>
+				</div>
+
 			</div>
 		</div>
   </body>

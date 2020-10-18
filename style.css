@@ -28,22 +28,11 @@ input[type=text] {
 	background-color : #111;
 	color: #EEE;
 	font-size: 1em;
-	padding: 5px;
+	outline: none;
+	padding: 3px 8px;
 }
 input[type=text]:hover {
 	border: 2px solid #DDD;
-}
-input[type=text]:placeholder {
-	text-align: center;
-}
-input[type=text]::-webkit-input-placeholder {
-	text-align: center;
-}
-input[type=text]::-moz-placeholder {
-	text-align: center;  
-}
-input[type=text]:-ms-input-placeholder {  
-	text-align: center; 
 }
 
 @font-face {
@@ -280,4 +269,63 @@ a.sideBarItem > span:last-child {
 	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+/*
+ * TV Shows
+ */
+
+.episodeList {
+	margin: 1em 0;
+	padding: 0 1em;
+	list-style: none;
+}
+.episodeHeading {
+	padding: 0 1.5em;
+}
+.episodeList .episodeNumber, .episodeList .episodePlayButton {
+	font-size: 0.8em;
+	color: #bbb;
+	display: inline-block;
+	margin-right: 0.5em;
+	width: 20px;
+}
+.episodeList .episodePlayButton {
+	display: none;
+}
+.episodeList li:hover .episodeNumber {
+	display: none;
+}
+.episodeList li:hover .episodePlayButton {
+	display: inline-block;
+}
+.episodeList li {
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 0.75em 0.5em;
+	border-radius: 2px;
+	background: #222;
+}
+.episodeList li:hover {
+	background: #444;
+	transition: background ease 0.5s;
+}
+.episodeList .episodeTitle {
+	flex-grow: 2;
+}
+.episodeList .episodeRating {
+}
+.episodeList .episodeDuration {
+	margin-left: 1em;
+}
+
+/* 
+ * Search Area
+ */
+
+.searchArea {
+	display: flex;
+}
+.searchArea input {
+	overflow: hidden;
 }
