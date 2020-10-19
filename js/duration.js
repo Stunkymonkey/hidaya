@@ -5,7 +5,7 @@ function calc_duration(){
 		var sec_num = parseInt(duration_div.textContent, 10);
 		if (sec_num == 0) {
 			duration_div.innerHTML = "&#xe803; n/a";
-			return;
+			continue;
 		}
 		var hours   = Math.floor(sec_num / 3600);
 		var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
