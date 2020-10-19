@@ -7,6 +7,7 @@
 		<meta name="author" content="MediaElch">
 		<link rel="stylesheet" type="text/css" href="../style.css">
 		<link rel="stylesheet" type="text/css" href="../css/tabs.css">
+		<link rel="stylesheet" type="text/css" href="../css/fontello.css">
 		<script src="../js/trailer.js"></script>
 		<script src="../js/check_title.js"></script>
 		<script src="../js/fill_empty.js"></script>
@@ -17,20 +18,20 @@
 		<div class="sidenav">
 			<div class="navigationArea">
 				<a href="../movies.html" class="sideBarItem active">
-					<span>&#xe800;</span>
+					<span class="icon-video"></span>
 					<span>Movies</span>
 				</a>
 				<a href="../tvshows.html" class="sideBarItem">
-					<span>&#xf26c;</span>
+					<span class="icon-television"></span>
 					<span>TV-Shows</span>
 				</a>
 				<a href="../concerts.html" class="sideBarItem">
-					<span>&#xf130;</span>
+					<span class="icon-mic"></span>
 					<span>Concerts</span>
 				</a>
 			</div>
 			<div class="searchArea" style="visibility: hidden;">
-				<span>&#xe802;</span>
+				<span class="icon-search"></span>
 				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
 			</div>
 		</div>
@@ -54,14 +55,14 @@
 						<br>
 						<div class="plot">{{ MOVIE.PLOT }}</div>
 						<div class="bubbles">
-							<div class="bubble" id="rating">
-								&#xe801; {{ MOVIE.RATING }} / 10
+							<div class="bubble icon-star" id="rating">
+								{{ MOVIE.RATING }} / 10
 							</div>
 							<div class="bubble jsCalcDuration">
 								{{ FILEINFO.DURATION }}
 							</div>
-							<div class="bubble play-media">
-								<a href="file://{{ MOVIE.FILENAME }}">&#xe804; Play</a>
+							<div class="bubble play-media icon-play">
+								<a href="file://{{ MOVIE.FILENAME }}">Play</a>
 							</div>
 						</div>
 					</div>

@@ -28,7 +28,7 @@ function create_trailer_iframe() {
 		// have overlay play button
 		var circle = document.createElement("div");
 		circle.setAttribute("id", "play-trailer");
-		circle.innerHTML = "<h2>&#xf16a;</h2>";
+		circle.innerHTML = "<h2 class='icon-youtube-play'></h2>";
 		youtube.appendChild(circle);
 
 		// if clicked the real video should play
