@@ -1,3 +1,5 @@
+'use strict';
+
 function create_trailer_iframe() {
 	var videos = document.getElementsByClassName("trailer");
 	for (var i = 0; i < videos.length; i++) {

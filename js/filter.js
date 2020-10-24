@@ -1,16 +1,17 @@
-function filter() {
-	var input, filter, ul, li, a, i, txtValue;
-	input = document.getElementById('filter_search');
-	filter = input.value.toLowerCase();
-	ul = document.getElementsByClassName("media-container")[0];
-	li = ul.getElementsByTagName('li');
+'use strict';
 
-	for (i = 0; i < li.length; i++) {
-		a = li[i].getElementsByTagName("a")[0];
-		txtValue = a.textContent || a.innerText;
-		filter_values = filter.split(" ");
+function filter() {
+	var input = document.getElementById('filter_search');
+	var filter = input.value.toLowerCase();
+	var ul = document.getElementsByClassName("media-container")[0];
+	var li = ul.getElementsByTagName('li');
+
+	for (var i = 0; i < li.length; i++) {
+		var a = li[i].getElementsByTagName("a")[0];
+		var txtValue = a.textContent || a.innerText;
+		var filter_values = filter.split(" ");
 		for (var j = filter_values.length - 1; j >= 0; j--) {
-			filter_word = filter_values[j];
+			var filter_word = filter_values[j];
 			if (txtValue.toLowerCase().indexOf(filter_word) > -1) {
 				li[i].style.display = "";
 			} else {

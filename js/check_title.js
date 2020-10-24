@@ -1,3 +1,5 @@
+'use strict';
+
 function check_original_title() {
 	var title_div = document.getElementsByClassName("title")[0];
 	var title_image = title_div.getElementsByTagName('img')[0];

@@ -1,3 +1,5 @@
+'use strict';
+
 function calc_duration(){
 	var duration_divs = document.querySelectorAll(".jsCalcDuration");
 	for (let i = 0; i < duration_divs.length; i++) {

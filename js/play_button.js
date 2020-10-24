@@ -1,3 +1,5 @@
+'use strict';
+
 function media_available(){
 	var playMediaLinks = document.querySelectorAll(".play-media");
 	for (let i = 0; i < playMediaLinks.length; i++) {

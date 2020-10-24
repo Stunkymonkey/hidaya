@@ -2,10 +2,13 @@
 <metadata>
 	<name>Hidaya Theme</name>
 	<identifier>hidaya</identifier>
+	<website>https://github.com/Stunkymonkey/hidaya</website>
 	<description>dark theme with search functionality</description>
-	<description lang="de">dunkles Thema mit Suchfunktionalität</description>
+	<description lang="de">Dunkles Theme mit Suchfunktionalität</description>
 	<author>Friedrich Weise, Felix Bühler</author>
 	<version>1.0</version>
+	<mediaelch-min>2.6.7</mediaelch-min>
+	<engine>simple</engine>
 	<supports>
 		<section>movies</section>
 		<section>tvshows</section>
