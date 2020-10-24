@@ -1,4 +1,0 @@
-- name: Zip Release
-  uses: TheDoctor0/zip-release@0.4.1
-  with:
-    exclusions: '*.git* /*node_modules/*'
