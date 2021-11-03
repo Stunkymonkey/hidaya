@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Movies</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="MediaElch">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="css/fontello.css">
-		<script src="js/filter.js"></script>
-	</head>
-	<body>
-		<div class="sidenav">
-			<div class="navigationArea">
-				<a href="movies.html" class="sideBarItem active">
-					<span class="icon-video"></span>
-					<span>Movies</span>
-				</a>
-				<a href="tvshows.html" class="sideBarItem">
-					<span class="icon-television"></span>
-					<span>TV-Shows</span>
-				</a>
-				<a href="concerts.html" class="sideBarItem">
-					<span class="icon-mic"></span>
-					<span>Concerts</span>
-				</a>
-			</div>
-			<div class="searchArea">
-				<span class="icon-search"></span>
-				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			</div>
-		</div>
-		<div class="main">
-			<ul class="media-container">
-			{{ BEGIN_BLOCK_MOVIE }}
-				<li class="media-item">
-					<a href="{{ MOVIE.LINK }}">
-						<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
-						<div class="info">
-							<h2 class="title">{{ MOVIE.TITLE }}</h2>
-							<span class="year">({{ MOVIE.YEAR }})</span>
-						</div>
-						<div class="media-overlay">
-							<span class="rating">
-								<span class="icon-star"></span>
-								<br>
-								{{ MOVIE.RATING }}/10
-							</span>
-							<span class="genre">
-							{{ BEGIN_BLOCK_GENRES }}
-								{{ GENRE.NAME }}
-								<br>
-							{{ END_BLOCK_GENRES }}
-							</span>
-						</div>
-						<div class="search_attributes">
-							{{ MOVIE.STUDIOS }}
-							{{ MOVIE.TAGS }}
-							{{ MOVIE.DIRECTOR }}
-							{{ MOVIE.WRITER }}
-							{{ MOVIE.COUNTRIES }}
-							{{ MOVIE.SET }}
-						</div>
-					</a>
-				</li>
-			{{ END_BLOCK_MOVIE }}
-			</ul>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+  </head>
+  <body>
+    <script src="js/filter.js"></script>
+    <div class="sidenav">
+      <div class="navigation-area">
+        <a href="movies.html" class="side-bar-item active">
+          <span class="icon-video"></span>
+          <span>Movies</span>
+        </a>
+        <a href="tvshows.html" class="side-bar-item">
+          <span class="icon-television"></span>
+          <span>TV-Shows</span>
+        </a>
+        <a href="concerts.html" class="side-bar-item">
+          <span class="icon-mic"></span>
+          <span>Concerts</span>
+        </a>
+      </div>
+      <div class="search-area">
+        <span class="icon-search"></span>
+        <input type="text" id="filter-search" onkeyup="filter()" placeholder="Search">
+      </div>
+    </div>
+    <div class="main">
+      <ul class="media-container">
+      {{ BEGIN_BLOCK_MOVIE }}
+        <li class="media-item">
+          <a href="{{ MOVIE.LINK }}">
+            <img src="{{ IMAGE.POSTER[200,300] }}" alt="poster of {{ MOVIE.TITLE }}" loading="lazy"/>
+            <div class="info">
+              <h2 class="title">{{ MOVIE.TITLE }}</h2>
+              <span class="year">({{ MOVIE.YEAR }})</span>
+            </div>
+            <div class="media-overlay">
+              <span class="rating">
+                <span class="icon-star"></span>
+                <br>
+                {{ MOVIE.RATING }}/10
+              </span>
+              <span class="genre">
+              {{ BEGIN_BLOCK_GENRES }}
+                {{ GENRE.NAME }}
+                <br>
+              {{ END_BLOCK_GENRES }}
+              </span>
+            </div>
+            <div class="search-attributes">
+              {{ MOVIE.STUDIOS }}
+              {{ MOVIE.TAGS }}
+              {{ MOVIE.DIRECTOR }}
+              {{ MOVIE.WRITER }}
+              {{ MOVIE.COUNTRIES }}
+              {{ MOVIE.SET }}
+            </div>
+          </a>
+        </li>
+      {{ END_BLOCK_MOVIE }}
+      </ul>
+    </div>
+  </body>
 </html>
 

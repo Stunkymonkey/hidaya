@@ -1,170 +1,171 @@
+<!-- htmlhint id-class-value:false -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Movie - {{ MOVIE.TITLE }}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="MediaElch">
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="stylesheet" type="text/css" href="../css/tabs.css">
-		<link rel="stylesheet" type="text/css" href="../css/fontello.css">
-		<script src="../js/trailer.js"></script>
-		<script src="../js/check_title.js"></script>
-		<script src="../js/fill_empty.js"></script>
-		<script src="../js/duration.js"></script>
-		<script src="../js/play_button.js"></script>
-	</head>
-	<body onload="calc_duration(); check_original_title(); media_available(); create_trailer_iframe(); fill_empty_listings();">
-		<div class="sidenav">
-			<div class="navigationArea">
-				<a href="../movies.html" class="sideBarItem active">
-					<span class="icon-video"></span>
-					<span>Movies</span>
-				</a>
-				<a href="../tvshows.html" class="sideBarItem">
-					<span class="icon-television"></span>
-					<span>TV-Shows</span>
-				</a>
-				<a href="../concerts.html" class="sideBarItem">
-					<span class="icon-mic"></span>
-					<span>Concerts</span>
-				</a>
-			</div>
-			<div class="searchArea" style="visibility: hidden;">
-				<span class="icon-search"></span>
-				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			</div>
-		</div>
-		<div class="main main-tab">
-			<!-- tabs -->
-			<div class="tabs">
-				<input type="radio" name="tabs" id="overview" checked="checked">
-				<label for="overview">Overview</label>
-				<div class="tab tabOverview">
-					<div class="poster">
-						<img src="{{ IMAGE.POSTER[400,600] }}"/>
-					</div>
-					<div class="overviewContent">
-						<h1 class="title">
-							<!-- max:[800,310] -->
-							<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ MOVIE.TITLE }}" align="middle"/>
-						</h1>
-						<span class="year">{{ MOVIE.YEAR }}</span>
-						<br>
-						<span class="original-title">Original Title: {{ MOVIE.ORIGINAL_TITLE }}</span>
-						<br>
-						<div class="plot">{{ MOVIE.PLOT }}</div>
-						<div class="bubbles">
-							<div class="bubble icon-star" id="rating">
-								{{ MOVIE.RATING }} / 10
-							</div>
-							<div class="bubble jsCalcDuration">
-								{{ FILEINFO.DURATION }}
-							</div>
-							<a href="file://{{ MOVIE.FILENAME }}" class="bubble play-media icon-play">
-								Play
-							</a>
-						</div>
-					</div>
-				</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Movie - {{ MOVIE.TITLE }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../css/tabs.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontello.css">
+  </head>
+  <body onload="calcDuration(); checkOriginalTitle(); mediaAvailable(); createTrailerIFrame(); fillEmptyListings();">
+    <script src="../js/trailer.js"></script>
+    <script src="../js/check_title.js"></script>
+    <script src="../js/fill_empty.js"></script>
+    <script src="../js/duration.js"></script>
+    <script src="../js/play_button.js"></script>
+    <div class="sidenav">
+      <div class="navigation-area">
+        <a href="../movies.html" class="side-bar-item active">
+          <span class="icon-video"></span>
+          <span>Movies</span>
+        </a>
+        <a href="../tvshows.html" class="side-bar-item">
+          <span class="icon-television"></span>
+          <span>TV-Shows</span>
+        </a>
+        <a href="../concerts.html" class="side-bar-item">
+          <span class="icon-mic"></span>
+          <span>Concerts</span>
+        </a>
+      </div>
+      <div class="search-area" style="visibility: hidden;">
+        <span class="icon-search"></span>
+        <input type="text" id="filter-search" onkeyup="filter()" placeholder="Search">
+      </div>
+    </div>
+    <div class="main main-tab">
+      <!-- tabs -->
+      <div class="tabs">
+        <input type="radio" name="tabs" id="overview" checked="checked">
+        <label for="overview">Overview</label>
+        <div class="tab tab-overview">
+          <div class="poster">
+            <img src="{{ IMAGE.POSTER[400,600] }}" alt="poster of {{ CONCERT.TITLE }}"/>
+          </div>
+          <div class="overview-content">
+            <h1 class="title">
+              <!-- max:[800,310] -->
+              <img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ MOVIE.TITLE }}" align="middle"/>
+            </h1>
+            <span class="year">{{ MOVIE.YEAR }}</span>
+            <br>
+            <span class="original-title">Original Title: {{ MOVIE.ORIGINAL_TITLE }}</span>
+            <br>
+            <div class="plot">{{ MOVIE.PLOT }}</div>
+            <div class="bubbles">
+              <div class="bubble icon-star" id="rating">
+                {{ MOVIE.RATING }} / 10
+              </div>
+              <div class="bubble calc-duration">
+                {{ FILEINFO.DURATION }}
+              </div>
+              <a href="file://{{ MOVIE.FILENAME }}" class="bubble play-media icon-play">
+                Play
+              </a>
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="details">
-				<label for="details">Details</label>
-				<div class="tab">
-					<div class="listings">
-						<div class="listing">
-							<h3>Genres:</h3>
-							{{ MOVIE.GENRES }}
-						</div>
-						<div class="listing">
-							<h3>Writer:</h3>
-							{{ MOVIE.WRITER }}
-						</div>
-						<div class="listing">
-							<h3>Director:</h3>
-							{{ MOVIE.DIRECTOR }}
-						</div>
-						<div class="listing">
-							<h3>Movie-Set:</h3>
-							{{ MOVIE.SET }}
-						</div>
-						<div class="listing">
-							<h3>Votes:</h3>
-							{{ MOVIE.VOTES }}
-						</div>
-						<div class="listing">
-							<h3>Countrys:</h3>
-							<ul>
-							{{ BEGIN_BLOCK_COUNTRIES }}
-								<li>
-									{{ COUNTRY.NAME }}
-								</li>
-							{{ END_BLOCK_COUNTRIES }}
-							</ul>
-						</div>
-						<div class="listing">
-							<h3>Studios:</h3>
-							<ul>
-							{{ BEGIN_BLOCK_STUDIOS }}
-								<li>
-									{{ STUDIO.NAME }}
-								</li>
-							{{ END_BLOCK_STUDIOS }}
-							</ul>
-						</div>
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="details">
+        <label for="details">Details</label>
+        <div class="tab">
+          <div class="listings">
+            <div class="listing">
+              <h3>Genres:</h3>
+              {{ MOVIE.GENRES }}
+            </div>
+            <div class="listing">
+              <h3>Writer:</h3>
+              {{ MOVIE.WRITER }}
+            </div>
+            <div class="listing">
+              <h3>Director:</h3>
+              {{ MOVIE.DIRECTOR }}
+            </div>
+            <div class="listing">
+              <h3>Movie-Set:</h3>
+              {{ MOVIE.SET }}
+            </div>
+            <div class="listing">
+              <h3>Votes:</h3>
+              {{ MOVIE.VOTES }}
+            </div>
+            <div class="listing">
+              <h3>Countrys:</h3>
+              <ul>
+              {{ BEGIN_BLOCK_COUNTRIES }}
+                <li>
+                  {{ COUNTRY.NAME }}
+                </li>
+              {{ END_BLOCK_COUNTRIES }}
+              </ul>
+            </div>
+            <div class="listing">
+              <h3>Studios:</h3>
+              <ul>
+              {{ BEGIN_BLOCK_STUDIOS }}
+                <li>
+                  {{ STUDIO.NAME }}
+                </li>
+              {{ END_BLOCK_STUDIOS }}
+              </ul>
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="actors">
-				<label for="actors">Actors</label>
-				<div class="tab">
-					<div class="listings">
-					{{ BEGIN_BLOCK_ACTORS }}
-						<div class="listing">
-							&bull; {{ ACTOR.NAME }} as: {{ ACTOR.ROLE }}
-						</div>
-					{{ END_BLOCK_ACTORS }}
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="actors">
+        <label for="actors">Actors</label>
+        <div class="tab">
+          <div class="listings">
+          {{ BEGIN_BLOCK_ACTORS }}
+            <div class="listing">
+              &bull; {{ ACTOR.NAME }} as: {{ ACTOR.ROLE }}
+            </div>
+          {{ END_BLOCK_ACTORS }}
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="file">
-				<label for="file">File</label>
-				<div class="tab">
-					<div class="listings">
-						<div class="listing">
-							<h3>Resolution:</h3>
-							{{ FILEINFO.WIDTH }}x{{ FILEINFO.HEIGHT }}
-						</div>
-						<div class="listing">
-							<h3>Aspect ratio:</h3>
-							{{ FILEINFO.ASPECT }}
-						</div>
-						<div class="listing">
-							<h3>Duration (in sec):</h3>
-							{{ FILEINFO.DURATION }}
-						</div>
-						<div class="listing">
-							<h3>Audio codec(s):</h3>
-							{{ FILEINFO.AUDIO.CODEC }}
-						</div>
-						<div class="listing">
-							<h3>Audio languages(s):</h3>
-							{{ FILEINFO.AUDIO.LANGUAGE }}
-						</div>
-						<div class="listing">
-							<h3>Subtitles:</h3>
-							{{ FILEINFO.SUBTITLES.LANGUAGE }}
-						</div>
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="file">
+        <label for="file">File</label>
+        <div class="tab">
+          <div class="listings">
+            <div class="listing">
+              <h3>Resolution:</h3>
+              {{ FILEINFO.WIDTH }}x{{ FILEINFO.HEIGHT }}
+            </div>
+            <div class="listing">
+              <h3>Aspect ratio:</h3>
+              {{ FILEINFO.ASPECT }}
+            </div>
+            <div class="listing">
+              <h3>Duration (in sec):</h3>
+              {{ FILEINFO.DURATION }}
+            </div>
+            <div class="listing">
+              <h3>Audio codec(s):</h3>
+              {{ FILEINFO.AUDIO.CODEC }}
+            </div>
+            <div class="listing">
+              <h3>Audio languages(s):</h3>
+              {{ FILEINFO.AUDIO.LANGUAGE }}
+            </div>
+            <div class="listing">
+              <h3>Subtitles:</h3>
+              {{ FILEINFO.SUBTITLES.LANGUAGE }}
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="trailer">
-				<label for="trailer">Trailer</label>
-				<div class="tab">
-					<div class="trailer" id="{{ MOVIE.TRAILER }}">
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+        <input type="radio" name="tabs" id="trailer">
+        <label for="trailer">Trailer</label>
+        <div class="tab">
+          <div class="trailer" id="{{ MOVIE.TRAILER }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

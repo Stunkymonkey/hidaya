@@ -1,146 +1,145 @@
+<!-- htmlhint id-class-value:false -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Concerts</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="MediaElch">
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="stylesheet" type="text/css" href="../css/tabs.css">
-		<link rel="stylesheet" type="text/css" href="../css/fontello.css">
-		<script src="../js/trailer.js"></script>
-		<script src="../js/fill_empty.js"></script>
-		<script src="../js/duration.js"></script>
-		<script src="../js/play_button.js"></script>
-	</head>
-	<body onload="calc_duration(); media_available(); create_trailer_iframe(); fill_empty_listings();">
-		<div class="sidenav">
-			<div class="navigationArea">
-				<a href="../movies.html" class="sideBarItem">
-					<span class="icon-video"></span>
-					<span>Movies</span>
-				</a>
-				<a href="../tvshows.html" class="sideBarItem">
-					<span class="icon-television"></span>
-					<span>TV-Shows</span>
-				</a>
-				<a href="../concerts.html" class="sideBarItem active">
-					<span class="icon-mic"></span>
-					<span>Concerts</span>
-				</a>
-			</div>
-			<div class="searchArea" style="visibility: hidden;">
-				<span class="icon-search"></span>
-				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			</div>
-		</div>
-		<div class="main main-tab">
-			<!-- tabs -->
-			<div class="tabs">
+  <head>
+    <meta charset="utf-8" />
+    <title>Concerts - {{ CONCERT.TITLE }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../css/tabs.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontello.css">
+  </head>
+  <body onload="calcDuration(); checkOriginalTitle(); mediaAvailable(); createTrailerIFrame(); fillEmptyListings();">
+    <script src="../js/trailer.js"></script>
+    <script src="../js/check_title.js"></script>
+    <script src="../js/fill_empty.js"></script>
+    <script src="../js/duration.js"></script>
+    <script src="../js/play_button.js"></script>
+    <div class="sidenav">
+      <div class="navigation-area">
+        <a href="../movies.html" class="side-bar-item">
+          <span class="icon-video"></span>
+          <span>Movies</span>
+        </a>
+        <a href="../tvshows.html" class="side-bar-item">
+          <span class="icon-television"></span>
+          <span>TV-Shows</span>
+        </a>
+        <a href="../concerts.html" class="side-bar-item active">
+          <span class="icon-mic"></span>
+          <span>Concerts</span>
+        </a>
+      </div>
+      <div class="search-area" style="visibility: hidden;">
+        <span class="icon-search"></span>
+        <input type="text" id="filter-search" onkeyup="filter()" placeholder="Search">
+      </div>
+    </div>
+    <div class="main main-tab">
+      <!-- tabs -->
+      <div class="tabs">
 
-				<input type="radio" name="tabs" id="overview" checked="checked">
-				<label for="overview">Overview</label>
-				<div class="tab tabOverview">
-					<div class="poster">
-						<img src="{{ IMAGE.POSTER[400,600] }}"/>
-					</div>
-					<!-- <h2 class="title">
-						<img src="{{ IMAGE.LOGO[800,310] }}" alt="{{ CONCERT.TITLE }}" align="middle"/>
-					</h2> -->
-					<div class="overviewContent">
-						<h1 class="title">
-							<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ CONCERT.TITLE }}" align="middle"/>
-						</h1>
-						<span class="year">{{ CONCERT.YEAR }}</span>
-						<br>
-						<div class="plot">{{ CONCERT.PLOT }}</div>
-						<div class="bubbles">
-							<div class="bubble icon-star" id="rating">
-								{{ CONCERT.RATING }} / 10
-							</div>
-							<div class="bubble jsCalcDuration">
-								{{ FILEINFO.DURATION }}
-							</div>
-							<div class="bubble icon-play" id="play-media">
-								<a href="file://{{ CONCERT.FILENAME }}">Play</a>
-							</div>
-						</div>
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="overview" checked="checked">
+        <label for="overview">Overview</label>
+        <div class="tab tab-overview">
+          <div class="poster">
+            <img src="{{ IMAGE.POSTER[400,600] }}" alt="poster of {{ CONCERT.TITLE }}"/>
+          </div>
+          <div class="overview-content">
+            <h1 class="title">
+              <img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ CONCERT.TITLE }}" align="middle"/>
+            </h1>
+            <span class="year">{{ CONCERT.YEAR }}</span>
+            <br>
+            <div class="plot">{{ CONCERT.PLOT }}</div>
+            <div class="bubbles">
+              <div class="bubble icon-star" id="rating">
+                {{ CONCERT.RATING }} / 10
+              </div>
+              <div class="bubble calc-duration">
+                {{ FILEINFO.DURATION }}
+              </div>
+              <div class="bubble icon-play" id="play-media">
+                <a href="file://{{ CONCERT.FILENAME }}">Play</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="details">
-				<label for="details">Details</label>
-				<div class="tab">
-					<div class="listings">
-						<div class="listing">
-							<h3>Artist:</h3>
-							{{ CONCERT.ARTIST }}
-						</div>
-						<div class="listing">
-							<h3>Album:</h3>
-							{{ CONCERT.ALBUM }}
-						</div>
-						<div class="listing">
-							<h3>Genres:</h3>
-							{{ CONCERT.GENRES }}
-						</div>
-						<div class="listing">
-							<h3>Tags:</h3>
-							{{ CONCERT.TAGS }}
-						</div>
-						<div class="listing">
-							<h3>Tagline:</h3>
-							{{ CONCERT.TAGLINE }}
-						</div>
-						<div class="listing">
-							<h3>Certification:</h3>
-							{{ CONCERT.CERTIFICATION }}
-						</div>
-						<div class="listing">
-							<h3>Plot:</h3>
-							{{ CONCERT.PLOT }}
-						</div>
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="details">
+        <label for="details">Details</label>
+        <div class="tab">
+          <div class="listings">
+            <div class="listing">
+              <h3>Artist:</h3>
+              {{ CONCERT.ARTIST }}
+            </div>
+            <div class="listing">
+              <h3>Album:</h3>
+              {{ CONCERT.ALBUM }}
+            </div>
+            <div class="listing">
+              <h3>Genres:</h3>
+              {{ CONCERT.GENRES }}
+            </div>
+            <div class="listing">
+              <h3>Tags:</h3>
+              {{ CONCERT.TAGS }}
+            </div>
+            <div class="listing">
+              <h3>Tagline:</h3>
+              {{ CONCERT.TAGLINE }}
+            </div>
+            <div class="listing">
+              <h3>Certification:</h3>
+              {{ CONCERT.CERTIFICATION }}
+            </div>
+            <div class="listing">
+              <h3>Plot:</h3>
+              {{ CONCERT.PLOT }}
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="file">
-				<label for="file">File</label>
-				<div class="tab">
-					<div class="listings">
-						<div class="listing">
-							<h3>Resolution:</h3>
-							{{ FILEINFO.WIDTH }}x{{ FILEINFO.HEIGHT }}
-						</div>
-						<div class="listing">
-							<h3>Aspect ratio:</h3>
-							{{ FILEINFO.ASPECT }}
-						</div>
-						<div class="listing">
-							<h3>Duration (in sec):</h3>
-							{{ FILEINFO.DURATION }}
-						</div>
-						<div class="listing">
-							<h3>Audio codec(s):</h3>
-							{{ FILEINFO.AUDIO.CODEC }}
-						</div>
-						<div class="listing">
-							<h3>Audio languages(s):</h3>
-							{{ FILEINFO.AUDIO.LANGUAGE }}
-						</div>
-						<div class="listing">
-							<h3>Subtitles:</h3>
-							{{ FILEINFO.SUBTITLES.LANGUAGE }}
-						</div>
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="file">
+        <label for="file">File</label>
+        <div class="tab">
+          <div class="listings">
+            <div class="listing">
+              <h3>Resolution:</h3>
+              {{ FILEINFO.WIDTH }}x{{ FILEINFO.HEIGHT }}
+            </div>
+            <div class="listing">
+              <h3>Aspect ratio:</h3>
+              {{ FILEINFO.ASPECT }}
+            </div>
+            <div class="listing">
+              <h3>Duration (in sec):</h3>
+              {{ FILEINFO.DURATION }}
+            </div>
+            <div class="listing">
+              <h3>Audio codec(s):</h3>
+              {{ FILEINFO.AUDIO.CODEC }}
+            </div>
+            <div class="listing">
+              <h3>Audio languages(s):</h3>
+              {{ FILEINFO.AUDIO.LANGUAGE }}
+            </div>
+            <div class="listing">
+              <h3>Subtitles:</h3>
+              {{ FILEINFO.SUBTITLES.LANGUAGE }}
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="trailer">
-				<label for="trailer">Trailer</label>
-				<div class="tab">
-					<div class="trailer" id="{{ CONCERT.TRAILER }}">
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+        <input type="radio" name="tabs" id="trailer">
+        <label for="trailer">Trailer</label>
+        <div class="tab">
+          <div class="trailer" id="{{ CONCERT.TRAILER }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

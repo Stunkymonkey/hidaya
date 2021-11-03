@@ -1,331 +1,364 @@
 body {
-	margin: 0;
-	padding: 0;
-
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "fontello";
-	font-size: 16px;
-
-	background: #111;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "fontello";
+  font-size: 16px;
+  background: #111;
 }
+
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
+
 a {
-	color: inherit;
-	text-decoration: none;
-	outline: 0;
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
 }
+
 h3 {
-	margin-top: 0;
-	margin-bottom: 0.5em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 input[type=text] {
-	width: 90%;
-	box-sizing: border-box;
-	border: 2px solid #888;
-	border-radius: 4px;
-	background-color : #111;
-	color: #EEE;
-	font-size: 1em;
-	outline: none;
-	padding: 3px 8px;
+  width: 90%;
+  box-sizing: border-box;
+  border: 2px solid #888;
+  border-radius: 4px;
+  background-color: #111;
+  color: #eee;
+  font-size: 1em;
+  outline: none;
+  padding: 3px 8px;
 }
+
 input[type=text]:hover {
-	border: 2px solid #DDD;
+  border: 2px solid #ddd;
 }
 
 @font-face {
-	font-family: 'fontello';
-	src: url('./font/fontello.eot?64918320');
-	src: url('./font/fontello.eot?64918320#iefix') format('embedded-opentype'),
-		url('./font/fontello.woff?64918320') format('woff'),
-		url('./font/fontello.ttf?64918320') format('truetype'),
-		url('./font/fontello.svg?64918320#fontello') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?64918320');
+  src:
+    url('./font/fontello.eot?64918320#iefix') format('embedded-opentype'),
+    url('./font/fontello.woff?64918320') format('woff'),
+    url('./font/fontello.ttf?64918320') format('truetype'),
+    url('./font/fontello.svg?64918320#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .active {
-	color: #EEE;
+  color: #eee;
 }
+
 .sidenav {
-	height: 100vh;
-	width: 200px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	padding: 20px 0;
-	color: #888;
-	text-align: center;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	justify-content: space-between;
+  height: 100vh;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  color: #888;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
 }
+
 .sidenav a {
-	padding: 8px;
-	font-size: 1.5rem;
-	display: block;
+  padding: 8px;
+  font-size: 1.5rem;
+  display: block;
 }
+
 .sidenav span {
-	padding: 8px;
-	font-size: 1.5rem;
-	text-align: center;
-	display: block;
+  padding: 8px;
+  font-size: 1.5rem;
+  text-align: center;
+  display: block;
 }
+
 .sidenav a:hover {
-	color: #EEE;
+  color: #eee;
 }
 
 .main {
-	padding-left: 200px;
-	color: #DEDEDE;
-	min-height: 100vh;
+  padding-left: 200px;
+  color: #dedede;
+  min-height: 100vh;
 }
+
 .main-tab {
-	display: flex;
-	justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .media-container {
-	padding: 0;
-	margin: 2rem; 
-	list-style: none;
-	grid-template-columns: repeat(auto-fill, 200px);
-	grid-gap: 2em;
-	display: grid;
+  padding: 0;
+  margin: 2rem;
+  list-style: none;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 2em;
+  display: grid;
 }
 
 .media-item {
-	background: #242424;
-	width: 200px;
-	height: 370px;
-	overflow: hidden;
-	color: white;
-	position: relative;
-	border-radius: 4px;
-	border: 2px solid #C8C8C8;
-	transition: .3s ease;
+  background: #242424;
+  width: 200px;
+  height: 370px;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  border-radius: 4px;
+  border: 2px solid #c8c8c8;
+  transition: 0.3s ease;
 }
-.media-item:hover .media-overlay{
-	opacity: 0.8;
-	transition: .3s ease;
-}
+
 .media-item img {
-	width: 200px;
-	height: 300px;
+  width: 200px;
+  height: 300px;
 }
 
 .info {
-	padding: 0.75em;
+  padding: 0.75em;
 }
+
 .media-item .title {
-	margin: 0 0 0.2em 0;
-	font-size: 1em;
-	overflow: hidden;
-	white-space: nowrap; 
-	text-overflow: ellipsis;
+  margin: 0 0 0.2em 0;
+  font-size: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
 .media-item .year {
-	font-size: 0.9rem;
-	color: #888;
+  font-size: 0.9rem;
+  color: #888;
 }
 
 .media-overlay {
-	transition: .3s ease;
-	opacity: 0;
-	background-color: #111;
-	color: #fff;
-	font-weight: bold;
-	top: 0;
-	left: 0;
-	position: absolute;
-	height: 300px;
-	width: 100%;
-	text-align: center;
+  transition: 0.3s ease;
+  opacity: 0;
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  text-align: center;
 }
+
+.media-item:hover .media-overlay {
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
 .media-item .rating {
-	display: block;
-	font-size: 1.5em;
-	line-height: 1.5em;
-	padding: 1.5em;
-	margin-bottom: 1em; 
+  display: block;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  padding: 1.5em;
+  margin-bottom: 1em;
 }
+
 .media-item .genre {
-	display: block;
-	line-height: 1.6em;
-	max-height: 4.8em;
-	overflow: hidden;
+  display: block;
+  line-height: 1.6em;
+  max-height: 4.8em;
+  overflow: hidden;
 }
-.media-item .search_attributes {
-	display: none;
+
+.media-item .search-attributes {
+  display: none;
 }
 
 .plot {
-	padding: 2em 0;
+  padding: 2em 0;
 }
 
 #play-movie a {
-	color: #999;
-	text-decoration: none;
+  color: #999;
+  text-decoration: none;
 }
+
 #play-movie a:hover {
-	color: #fff;
+  color: #fff;
 }
 
 .trailer {
-	position: relative;
+  position: relative;
 }
+
 .thumb {
-	display: block;
-	max-height: 600px;
-	margin-left: auto;
-	margin-right: auto;
-	cursor: pointer;
+  display: block;
+  max-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
 }
+
 iframe {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border: 0;
-	height: 600px;
-	width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  height: 600px;
+  width: 100%;
 }
+
 #play-trailer {
-	position: absolute;
-	color: red;
-	font-size: 3em;
-	user-select: none;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  color: red;
+  font-size: 3em;
+  user-select: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tab .poster {
-	flex: 0 0 400px;
+  flex: 0 0 400px;
 }
+
 .tab .poster img {
-	width: 400px;
-	height: 600px;
-	display: block;
+  width: 400px;
+  height: 600px;
+  display: block;
 }
+
 .tab .year {
-	color: #888;
-	font-size: 2rem;
-	text-align: right;
-	display: block;
+  color: #888;
+  font-size: 2rem;
+  text-align: right;
+  display: block;
 }
+
 .tab .bubbles {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 1em 0;
-	justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  justify-content: space-between;
 }
+
 .tab .bubble {
-	padding: 0.5em 1em;
-	border-radius: 0.5em;
-	background-color: black;
-	margin-bottom: 1em;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  background-color: black;
+  margin-bottom: 1em;
 }
+
 .tab .listings {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 1em;
-	justify-content: space-between;
-	flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  justify-content: space-between;
+  flex-direction: row;
 }
+
 .tab .listing {
-	flex: 1;
-	min-width: 300px;
-	max-width: 300px;
-	margin: 1em;
-	padding: 0.5em 1em;
+  flex: 1;
+  min-width: 300px;
+  max-width: 300px;
+  margin: 1em;
+  padding: 0.5em 1em;
 }
+
 .tab .section {
-	padding-left: 2.5em;
-	padding-right: 2.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
 }
-
-/*.tab .overview-content {
-
-}*/
 
 .tab .title {
-	margin: 0;
-	text-align: center;
+  margin: 0;
+  text-align: center;
 }
 
-a.sideBarItem {
-	display: flex;
-	align-items: baseline;
+a.side-bar-item {
+  display: flex;
+  align-items: baseline;
 }
-a.sideBarItem > span:first-child {
-	font-size: 20px;
-	flex: 0 0 40px;
+
+a.side-bar-item > span:first-child {
+  font-size: 20px;
+  flex: 0 0 40px;
 }
-a.sideBarItem > span:last-child {
-	font-size: 20px;
-	font-weight: bold;
-	text-transform: uppercase;
+
+a.side-bar-item > span:last-child {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /*
  * TV Shows
  */
 
-.episodeList {
-	margin: 1em 0;
-	padding: 0 1em;
-	list-style: none;
-}
-.episodeHeading {
-	padding: 0 1.5em;
-}
-.episodeList .episodeNumber, .episodeList .episodePlayButton {
-	font-size: 0.8em;
-	color: #bbb;
-	display: inline-block;
-	margin-right: 0.5em;
-	width: 20px;
-}
-.episodeList .episodePlayButton {
-	display: none;
-}
-.episodeList li:hover .episodeNumber {
-	display: none;
-}
-.episodeList li:hover .episodePlayButton {
-	display: inline-block;
-}
-.episodeList li {
-	display: flex;
-	flex-wrap: nowrap;
-	padding: 0.75em 0.5em;
-	border-radius: 2px;
-	background: #222;
-}
-.episodeList li:hover {
-	background: #444;
-	transition: background ease 0.5s;
-}
-.episodeList .episodeTitle {
-	flex-grow: 2;
-}
-.episodeList .episodeRating {
-}
-.episodeList .episodeDuration {
-	margin-left: 1em;
+.episode-list {
+  margin: 1em 0;
+  padding: 0 1em;
+  list-style: none;
 }
 
-/* 
+.episode-heading {
+  padding: 0 1.5em;
+}
+
+.episode-list .episode-number,
+.episode-list .episode-play-button {
+  font-size: 0.8em;
+  color: #bbb;
+  display: inline-block;
+  margin-right: 0.5em;
+  width: 20px;
+}
+
+.episode-list .episode-play-button {
+  display: none;
+}
+
+.episode-list li:hover .episode-number {
+  display: none;
+}
+
+.episode-list li:hover .episode-play-button {
+  display: inline-block;
+}
+
+.episode-list li {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.75em 0.5em;
+  border-radius: 2px;
+  background: #222;
+}
+
+.episode-list li:hover {
+  background: #444;
+  transition: background ease 0.5s;
+}
+
+.episode-list .episode-title {
+  flex-grow: 2;
+}
+
+.episode-list .episode-duration {
+  margin-left: 1em;
+}
+
+/*
  * Search Area
  */
 
-.searchArea {
-	display: flex;
+.search-area {
+  display: flex;
 }
-.searchArea input {
-	overflow: hidden;
+
+.search-area input {
+  overflow: hidden;
 }

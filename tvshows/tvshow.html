@@ -1,99 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>TV Show - {{ TVSHOW.TITLE }}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="MediaElch">
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="stylesheet" type="text/css" href="../css/tabs.css">
-		<link rel="stylesheet" type="text/css" href="../css/fontello.css">
-		<script src="../js/check_title.js"></script>
-		<script src="../js/fill_empty.js"></script>
-		<script src="../js/duration.js"></script>
-		<script src="../js/play_button.js"></script>
-	</head>
-	<body onload="calc_duration(); check_original_title(); media_available(); fill_empty_listings();">
-		<div class="sidenav">
-			<div class="navigationArea">
-				<a href="../movies.html" class="sideBarItem">
-					<span class="icon-video"></span>
-					<span>Movies</span>
-				</a>
-				<a href="../tvshows.html" class="sideBarItem active">
-					<span class="icon-television"></span>
-					<span>TV-Shows</span>
-				</a>
-				<a href="../concerts.html" class="sideBarItem">
-					<span class="icon-mic"></span>
-					<span>Concerts</span>
-				</a>
-			</div>
-			<div class="searchArea" style="visibility: hidden;">
-				<span class="icon-search"></span>
-				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			</div>
-		</div>
-		<div class="main main-tab">
-			<div class="tabs">
-				<input type="radio" name="tabs" id="overview" checked="checked">
-				<label for="overview">Overview</label>
-				<div class="tab tabOverview">
-					<div class="poster">
-						<img src="{{ IMAGE.POSTER[400,600] }}"/>
-					</div>
-					<div class="overviewContent">
-						<h1 class="title">
-							<!-- max:[800,310] -->
-							<img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ TVSHOW.TITLE }}" align="middle"/>
-						</h1>
-						Genre: {{ TVSHOW.GENRES }}
-						<div class="plot">{{ TVSHOW.PLOT }}</div>
-						<div class="bubbles">
-							<div class="bubble icon-star" id="rating">
-								{{ TVSHOW.RATING }} / 10
-							</div><div class="bubble" id="seasons">
-								Seasons {{ TVSHOW.SEASONS_AMOUNT }}
-							</div>
-						</div>
-					</div>
-				</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>TV Show - {{ TVSHOW.TITLE }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../css/tabs.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontello.css">
+  </head>
+  <body onload="calcDuration(); checkOriginalTitle(); mediaAvailable(); fillEmptyListings();">
+    <script src="../js/check_title.js"></script>
+    <script src="../js/fill_empty.js"></script>
+    <script src="../js/duration.js"></script>
+    <script src="../js/play_button.js"></script>
+    <div class="sidenav">
+      <div class="navigation-area">
+        <a href="../movies.html" class="side-bar-item">
+          <span class="icon-video"></span>
+          <span>Movies</span>
+        </a>
+        <a href="../tvshows.html" class="side-bar-item active">
+          <span class="icon-television"></span>
+          <span>TV-Shows</span>
+        </a>
+        <a href="../concerts.html" class="side-bar-item">
+          <span class="icon-mic"></span>
+          <span>Concerts</span>
+        </a>
+      </div>
+      <div class="search-area" style="visibility: hidden;">
+        <span class="icon-search"></span>
+        <input type="text" id="filter-search" onkeyup="filter()" placeholder="Search">
+      </div>
+    </div>
+    <div class="main main-tab">
+      <div class="tabs">
+        <input type="radio" name="tabs" id="overview" checked="checked">
+        <label for="overview">Overview</label>
+        <div class="tab tab-overview">
+          <div class="poster">
+            <img src="{{ IMAGE.POSTER[400,600] }}" alt="poster of {{ CONCERT.TITLE }}"/>
+          </div>
+          <div class="overview-content">
+            <h1 class="title">
+              <!-- max:[800,310] -->
+              <img src="{{ IMAGE.LOGO[600,232] }}" alt="{{ TVSHOW.TITLE }}" align="middle"/>
+            </h1>
+            Genre: {{ TVSHOW.GENRES }}
+            <div class="plot">{{ TVSHOW.PLOT }}</div>
+            <div class="bubbles">
+              <div class="bubble icon-star" id="rating">
+                {{ TVSHOW.RATING }} / 10
+              </div><div class="bubble" id="seasons">
+                Seasons {{ TVSHOW.SEASONS_AMOUNT }}
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<input type="radio" name="tabs" id="episodes">
-				<label for="episodes">Episodes</label>
-				<div class="tab">
-					{{ BEGIN_BLOCK_SEASON }}
-						<h2 class="episodeHeading">Season {{ SEASON }}</h2>
-						<ul class="episodeList">
-							{{ BEGIN_BLOCK_EPISODE }}
-								<li>
-									<a href="file://{{ EPISODE.FILENAME }}" class="episodeTitle play-media">
-										<span class="episodeNumber">{{ EPISODE.EPISODE }}</span>
-										<span class="episodePlayButton icon-play"></span>
-										 {{ EPISODE.TITLE }}
-									</a>
-									<span class="episodeRating icon-star">{{ EPISODE.RATING }}</span>
-									<span class="episodeDuration jsCalcDuration">{{ FILEINFO.DURATION }}</span>
-								</li>
-							{{ END_BLOCK_EPISODE }}
-						</ul>
-					{{ END_BLOCK_SEASON }}
-				</div>
+        <input type="radio" name="tabs" id="episodes">
+        <label for="episodes">Episodes</label>
+        <div class="tab">
+          {{ BEGIN_BLOCK_SEASON }}
+            <h2 class="episode-heading">Season {{ SEASON }}</h2>
+            <ul class="episode-list">
+              {{ BEGIN_BLOCK_EPISODE }}
+                <li>
+                  <a href="file://{{ EPISODE.FILENAME }}" class="episode-title play-media">
+                    <span class="episode-number">{{ EPISODE.EPISODE }}</span>
+                    <span class="episode-play-button icon-play"></span>
+                     {{ EPISODE.TITLE }}
+                  </a>
+                  <span class="episode-rating icon-star">{{ EPISODE.RATING }}</span>
+                  <span class="episode-duration calc-duration">{{ FILEINFO.DURATION }}</span>
+                </li>
+              {{ END_BLOCK_EPISODE }}
+            </ul>
+          {{ END_BLOCK_SEASON }}
+        </div>
 
 
-				<input type="radio" name="tabs" id="actors">
-				<label for="actors">Actors</label>
-				<div class="tab">
-					<div class="listings">
-					{{ BEGIN_BLOCK_ACTORS }}
-						<div class="listing">
-							&bull; {{ ACTOR.NAME }} as: {{ ACTOR.ROLE }}
-						</div>
-					{{ END_BLOCK_ACTORS }}
-					</div>
-				</div>
+        <input type="radio" name="tabs" id="actors">
+        <label for="actors">Actors</label>
+        <div class="tab">
+          <div class="listings">
+          {{ BEGIN_BLOCK_ACTORS }}
+            <div class="listing">
+              &bull; {{ ACTOR.NAME }} as: {{ ACTOR.ROLE }}
+            </div>
+          {{ END_BLOCK_ACTORS }}
+          </div>
+        </div>
 
-			</div>
-		</div>
+      </div>
+    </div>
   </body>
 </html>

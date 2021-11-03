@@ -1,18 +1,18 @@
 'use strict'
 
-function filter () {
-  var input = document.getElementById('filter_search')
-  var filter = input.value.toLowerCase()
-  var ul = document.getElementsByClassName('media-container')[0]
-  var li = ul.getElementsByTagName('li')
+function filter () { // eslint-disable-line no-unused-vars
+  const input = document.getElementById('filter-search')
+  const filter = input.value.toLowerCase()
+  const ul = document.getElementsByClassName('media-container')[0]
+  const li = ul.getElementsByTagName('li')
 
-  for (var i = 0; i < li.length; i++) {
-    var a = li[i].getElementsByTagName('a')[0]
-    var txtValue = a.textContent || a.innerText
-    var filter_values = filter.split(' ')
-    for (var j = filter_values.length - 1; j >= 0; j--) {
-      var filter_word = filter_values[j]
-      if (txtValue.toLowerCase().indexOf(filter_word) > -1) {
+  for (let i = 0; i < li.length; i++) {
+    const a = li[i].getElementsByTagName('a')[0]
+    const txtValue = a.textContent || a.innerText
+    const filterValues = filter.split(' ')
+    for (let j = filterValues.length - 1; j >= 0; j--) {
+      const filterWord = filterValues[j]
+      if (txtValue.toLowerCase().indexOf(filterWord) > -1) {
         li[i].style.display = ''
       } else {
         li[i].style.display = 'none'

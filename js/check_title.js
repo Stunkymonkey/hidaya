@@ -1,14 +1,14 @@
 'use strict'
 
-function check_original_title () {
-  var title_div = document.getElementsByClassName('title')[0]
-  var title_image = title_div.getElementsByTagName('img')[0]
-  var title = title_image.alt
-  var original_title_div = document.getElementsByClassName('original-title')[0]
-  if (original_title_div) {
-    var original_title = original_title_div.innerHTML.replace('Original Title: ', '')
-    if ((title === original_title) || (original_title === '')) {
-      original_title_div.style.visibility = 'hidden'
+function checkOriginalTitle () { // eslint-disable-line no-unused-vars
+  const titleDiv = document.getElementsByClassName('title')[0]
+  const titleImage = titleDiv.getElementsByTagName('img')[0]
+  const title = titleImage.alt
+  const originalTitleDiv = document.getElementsByClassName('original-title')[0]
+  if (originalTitleDiv) {
+    const originalTitle = originalTitleDiv.innerHTML.replace('Original Title: ', '')
+    if ((title === originalTitle) || (originalTitle === '')) {
+      originalTitleDiv.style.visibility = 'hidden'
     }
   }
 }

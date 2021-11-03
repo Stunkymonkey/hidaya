@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>TV Shows</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="MediaElch">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="css/fontello.css">
-		<script src="js/filter.js"></script>
-	</head>
-	<body>
-		<div class="sidenav">
-			<div class="navigationArea">
-				<a href="movies.html" class="sideBarItem">
-					<span class="icon-video"></span>
-					<span>Movies</span>
-				</a>
-				<a href="tvshows.html" class="sideBarItem active">
-					<span class="icon-television"></span>
-					<span>TV-Shows</span>
-				</a>
-				<a href="concerts.html" class="sideBarItem">
-					<span class="icon-mic"></span>
-					<span>Concerts</span>
-				</a>
-			</div>
-			<div class="searchArea">
-				<span class="icon-search"></span>
-				<input type="text" id="filter_search" onkeyup="filter()" placeholder="Search">
-			</div>
-		</div>
-		<div class="main">
-			<ul class="media-container">
-			{{ BEGIN_BLOCK_TVSHOW }}
-				<li class="media-item">
-					<a href="{{ TVSHOW.LINK }}">
-						<img src="{{ IMAGE.POSTER[200,300] }}" loading="lazy"/>
-						<div class="info">
-							<h2 class="title">{{ TVSHOW.TITLE }}</h2>
-							<span class="year">{{ TVSHOW.SEASONS_AMOUNT }} Seasons</span>
-						</div>
-						<div class="media-overlay">
-							<span class="rating">
-								<span class="icon-star"></span>
-								<br>
-								{{ TVSHOW.RATING }}/10
-							</span>
-							<span class="genre">
-							{{ BEGIN_BLOCK_GENRES }}
-								{{ GENRE.NAME }}
-								<br>
-							{{ END_BLOCK_GENRES }}
-							</span>
-						</div>
-						<div class="search_attributes">
-							{{ TVSHOW.STUDIO }}
-							{{ TVSHOW.TAGS }}
-						</div>
-					</a>
-				</li>
-			{{ END_BLOCK_TVSHOW }}
-			</ul>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>TV Shows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MediaElch">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+  </head>
+  <body>
+    <script src="js/filter.js"></script>
+    <div class="sidenav">
+      <div class="navigation-area">
+        <a href="movies.html" class="side-bar-item">
+          <span class="icon-video"></span>
+          <span>Movies</span>
+        </a>
+        <a href="tvshows.html" class="side-bar-item active">
+          <span class="icon-television"></span>
+          <span>TV-Shows</span>
+        </a>
+        <a href="concerts.html" class="side-bar-item">
+          <span class="icon-mic"></span>
+          <span>Concerts</span>
+        </a>
+      </div>
+      <div class="search-area">
+        <span class="icon-search"></span>
+        <input type="text" id="filter-search" onkeyup="filter()" placeholder="Search">
+      </div>
+    </div>
+    <div class="main">
+      <ul class="media-container">
+      {{ BEGIN_BLOCK_TVSHOW }}
+        <li class="media-item">
+          <a href="{{ TVSHOW.LINK }}">
+            <img src="{{ IMAGE.POSTER[200,300] }}" alt="poster of {{ TVSHOW.TITLE }}" loading="lazy"/>
+            <div class="info">
+              <h2 class="title">{{ TVSHOW.TITLE }}</h2>
+              <span class="year">{{ TVSHOW.SEASONS_AMOUNT }} Seasons</span>
+            </div>
+            <div class="media-overlay">
+              <span class="rating">
+                <span class="icon-star"></span>
+                <br>
+                {{ TVSHOW.RATING }}/10
+              </span>
+              <span class="genre">
+              {{ BEGIN_BLOCK_GENRES }}
+                {{ GENRE.NAME }}
+                <br>
+              {{ END_BLOCK_GENRES }}
+              </span>
+            </div>
+            <div class="search-attributes">
+              {{ TVSHOW.STUDIO }}
+              {{ TVSHOW.TAGS }}
+            </div>
+          </a>
+        </li>
+      {{ END_BLOCK_TVSHOW }}
+      </ul>
+    </div>
+  </body>
 </html>

@@ -1,68 +1,75 @@
 .tabs {
-	display: flex;
-	flex-wrap: wrap;
-	width: 85%;
-	margin: 0 auto;
-	align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+  align-content: center;
 }
+
 .tabs label {
-	order: 1;
-	display: block;
-	padding: 1rem 2rem;
-	margin: auto;
-	cursor: pointer;
-	font-weight: bold;
-	font-size: 1.2rem;
-	transition: background ease 0.2s;
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin: auto;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background ease 0.2s;
 }
+
 .tabs .tab {
-	order: 99;
-	height: 600px;
-	display: none;
-	background: #222;
-	overflow-y: auto;
-	width: 100%;
-	border-radius: 4px;
-	border: 2px solid #C8C8C8;
+  order: 99;
+  height: 600px;
+  display: none;
+  background: #222;
+  overflow-y: auto;
+  width: 100%;
+  border-radius: 4px;
+  border: 2px solid #c8c8c8;
 }
 
 .tabs input[type="radio"] {
-	display: none;
+  display: none;
 }
+
 .tabs input[type="radio"]:checked + label {
-	color: #262626;
-	background-color: #C8C8C8;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+  color: #262626;
+  background-color: #c8c8c8;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
+
 .tabs input[type="radio"]:hover + label {
-	background-color: #5B5B5B;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+  background-color: #5b5b5b;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
+
 .tabs input[type="radio"]:checked + label + .tab {
-	display: block;
+  display: block;
 }
 
 @media (max-width: 45em) {
-	.tabs .tab,
-	.tabs label {
-		order: initial;
-	}
-	.tabs label {
-		width: 100%;
-		margin-right: 0;
-		margin-top: 0.2rem;
-	}
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
 }
 
-.tabs input[type="radio"]:checked + label + .tabOverview {
-	display: flex;
-	flex-wrap: nowrap;
+.tabs input[type="radio"]:checked + label + .tab-overview {
+  display: flex;
+  flex-wrap: nowrap;
 }
-.overviewContent {
-	flex-grow: 2;
-	padding: 2em;
-	max-height: 600px;
-	box-sizing: border-box;
+
+.overview-content {
+  flex-grow: 2;
+  padding: 2em;
+  max-height: 600px;
+  box-sizing: border-box;
 }
