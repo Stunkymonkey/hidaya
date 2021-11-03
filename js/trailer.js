@@ -23,7 +23,7 @@ function createTrailerIFrame () { // eslint-disable-line no-unused-vars
     }
 
     const img = document.createElement('img')
-    img.setAttribute('src', 'http://i.ytimg.com/vi/' + youtubeId + '/maxresdefault.jpg')
+    img.setAttribute('src', 'https://i.ytimg.com/vi/' + youtubeId + '/maxresdefault.jpg')
     img.setAttribute('class', 'thumb')
     youtube.appendChild(img)
 
