@@ -6,7 +6,7 @@ function media_available () {
     var protocol = document.location.href
     var is_local = protocol.startsWith('file://')
     if (!is_local) {
-      playMediaLinks[i].style.visibility = 'hidden'
+      playMediaLinks[i].href = "javascript:void(0)";
     }
   }
 }
