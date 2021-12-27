@@ -6,7 +6,7 @@
 	<description>dark theme with search functionality</description>
 	<description lang="de">Dunkles Theme mit Suchfunktionalität</description>
 	<author>Friedrich Weise, Felix Bühler</author>
-	<version>1.0</version>
+	<version>1.2</version>
 	<mediaelch-min>2.6.7</mediaelch-min>
 	<engine>simple</engine>
 	<supports>
