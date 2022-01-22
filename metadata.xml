@@ -5,7 +5,8 @@
 	<website>https://github.com/Stunkymonkey/hidaya</website>
 	<description>dark theme with search functionality</description>
 	<description lang="de">Dunkles Theme mit Suchfunktionalität</description>
-	<author>Friedrich Weise, Felix Bühler</author>
+	<author>Felix Bühler</author>
+	<author>Friedrich Weise</author>
 	<version>1.2</version>
 	<mediaelch-min>2.6.7</mediaelch-min>
 	<engine>simple</engine>
